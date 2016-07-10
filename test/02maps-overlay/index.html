@@ -44,6 +44,7 @@
     //color class function 
 
     //TODO add celcious to the color  if ( tempF || tempC >= 40){
+      //add els ifs for additional parameters 
 
     function test(div) {
       
@@ -60,6 +61,9 @@
     var locNM; 
     var NMlat;
     var NMlon;
+
+    //each of these will be and overlay 
+    //for in key ? 
 
     var THE_ANIMALS = {
       narwhal: {
@@ -78,7 +82,7 @@
 // Ajax calls to weather underground api via geolookup and zipcode 
 // http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json
 
-//Height Ashbury 
+//Currently Height Ashbury 
 
     $.ajax({
           // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"), 
@@ -92,7 +96,7 @@
           dataType: "jsonp",
 
           success: function(data){
-            console.log(data)
+            //console.log(data)
             //console.log(data.current_observation.observation_location.city)
 
              locNM = data.current_observation.observation_location.city
@@ -135,14 +139,12 @@
       }
 
       function initMap() {
-
-        // TODO
-      
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           zoomControl: true,
           center: {lat: 37.78036, lng: -122.44688},
-          disableDefaultUI: true
+          disableDefaultUI: true,
+          
         });
 
 
