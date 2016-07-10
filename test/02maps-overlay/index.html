@@ -43,9 +43,11 @@
     <script>
     //color class function 
 
+    //TODO add celcious to the color  if ( tempF || tempC >= 40){
+
     function test(div) {
       
-      if ( tempF >= 40){
+      if ( tempF || tempC >= 40){
         div.className = "catHead"
       } else {
         console.log('its cold')
@@ -59,11 +61,25 @@
     var NMlat;
     var NMlon;
 
+    var THE_ANIMALS = {
+      narwhal: {
+          image: "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png",
+          zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
+          dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
+      },
+      cat: {
+          image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
+          zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94112.json",
+          dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
+      }
+    }
+
 
 // Ajax calls to weather underground api via geolookup and zipcode 
 // http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json
 
 //Height Ashbury 
+
     $.ajax({
           // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"), 
           url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json"), 
@@ -119,6 +135,8 @@
       }
 
       function initMap() {
+
+        // TODO
       
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
@@ -136,6 +154,7 @@
 
         
         var catImage = 'https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02';
+        
         var narwhal = "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png";
         // The custom catOverlay object
         // the bounds of the image, and a reference to the map.
@@ -144,8 +163,7 @@
           
         // The custom catOverlay object 
         // the bounds of the image, and a reference to the map.
-         overlay = new catOverlay(newBounds(37.661708 , -122.44688, 37.78036, -122.2853560), catImage, map);
-         overlay = new catOverlay(newBounds(37.761708 , -122.44688, 37.88036, -122.2853560), narwhal, map);
+         overlay = new catOverlay(newBounds(37.661708 , -122.44688, 37.78036, -122.2853560), catImage, map) + new catOverlay(newBounds(37.761708 , -122.44688, 37.88036, -122.2853560), narwhal, map);
 
       } 
 
