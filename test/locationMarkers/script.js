@@ -50,7 +50,7 @@ var beaches = [
 
 function setMarkers(map) {
 
-  infowindow = new google.maps.InfoWindow({
+  var infowindow = new google.maps.InfoWindow({
     content: contentString
   });
   // Adds markers to the map.
@@ -82,15 +82,6 @@ function setMarkers(map) {
     var beach = beaches[i];
     //TODO: not going into the this function, WWHHYY
     //trying closure 
-   google.maps.event.addListener(beach, 'click', function (innerKey) {
-   console.log("sooo grumpy")
-//  adding .html to the marker object.
-      return function(){
-          infowindow[innerKey].open(map, beaches[innerKey])
-        //infowindow.setContent(this.html);
-        //infowindow.open(map, this);
-      }
-    }[i]);
   
 
     var marker = new google.maps.Marker({
@@ -101,57 +92,25 @@ function setMarkers(map) {
       title: beach[0],
       zIndex: beach[3],
       animation: google.maps.Animation.DROP
-
-
     });
+    console.log(marker)
+   
+
+   google.maps.event.addListener(marker, 'click', function (innerKey) {
+   console.log("sooo grumpy")
+   //console.log(innerKey)
+
+      // return function(){
+        infowindow.open(map, beaches[innerKey])
+        //infowindow.setContent(this.html);
+        infowindow.open(map, this);
+      // }
+    });
+
   }
 }
 
-// beaches.addListener('click', toggleBounce);
-
-// function toggleBounce() {
-//   if (beaches.getAnimation() !== null) {
-//     beaches.setAnimation(null);
-//   } else {
-//    beaches.setAnimation(google.maps.Animation.BOUNCE);
-//   }
-// }
 
 
 
-  // var image = 'http://www.geo.uzh.ch/~gboo/netap/img/catMarker.png';
-  // var marker = new google.maps.Marker({
-  //   position: {lat: 37.78036, lng: -122.44688},
-  //   map: map,
-  //   icon: image,
-  //   animation: google.maps.Animation.DROP
-  // });
-   //marker.addListener('click', toggleBounce);
-
-//bounce function to animate marker  
-// function toggleBounce() {
-//   if (marker.getAnimation() !== null) {
-//     marker.setAnimation(null);
-//   } else {
-//     marker.setAnimation(google.maps.Animation.BOUNCE);
-//   }
-// }
-
-
-
-
-
-
-//DROP SET TIME OUT FUNCTION 
-// so that the markers drop at a different rate
-// function drop() {
-//   for (var i =0; i < markerArray.length; i++) {
-//     setTimeout(function() {
-//       addMarkerMethod();
-//     }, i * 200);
-//   }
-// }
-
-
-//removing a marker
-//marker.setMap(null);
+ 
