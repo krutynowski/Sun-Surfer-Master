@@ -147,7 +147,7 @@
           
         // The custom catOverlay object 
         // the bounds of the image, and a reference to the map.
-         overlay = new catOverlay(newBounds(37.661708 , -122.44688, 37.78036, -122.2853560), catImage, map) + new catOverlay(newBounds(37.761708 , -122.44688, 37.88036, -122.2853560), narwhal, map);
+         // overlay = new catOverlay(newBounds(37.661708 , -122.44688, 37.78036, -122.2853560), catImage, map) + new catOverlay(newBounds(37.761708 , -122.44688, 37.88036, -122.2853560), narwhal, map);
         
       
       /** @constructor */
@@ -227,13 +227,15 @@
             // then console.log the temperature 
              // store dewpoin in a variable
              // pass into the draw function as a parameter with if else
+             console.log(tempF)
              var overlay = new catOverlay(THE_ANIMALS[index].dimension, THE_ANIMALS[index].image, map)             
 
 
-             if ( tempF >= 50 && tempF < 58){
+             if ( tempF >= 50 && tempF < 52){
                overlay.temp = "fifties"
+               // ovarlay
                } 
-               if  (tempF >= 58 && tempF < 65) {
+               if  (tempF >= 53 && tempF < 60) {
                  overlay.temp = "sixties"
                }
                else {
@@ -250,11 +252,15 @@
     google.maps.event.addDomListener(window, 'load', initMap)
 
     setTimeout(function(){
+      console.log(overlays)
       for(overlay of overlays){
-        if ( tempF >= 50 && tempF < 58){
+        if (overlay.temp  === "fifties" ){
+        // if ( tempF >= 50 && tempF < 58){
+          console.log(overlay.temp, "cat")
           overlay.div_.className = "catHead"
           } 
-          if  (tempF >= 58 && tempF < 65) {
+           if  ( overlay.temp === "sixties") {
+            console.log(overlay.temp, "narwal")
             overlay.div_.className = "narwhal"
           }
           else {
