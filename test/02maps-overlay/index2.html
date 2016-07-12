@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html>
   <head>
  
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Weekend Test</title>
+    <title>Cat Overlay 2</title>
     <style>
       html, body {
         height: 100%;
@@ -17,16 +16,25 @@
       }
       .catHead{
         opacity: 0.7;
+
         /*CSS BLEND MODES*/
+
         /*-webkit-filter: grayscale(100%); filter: grayscale(100%);*/
         /*-webkit-filter: sepia(100%)*/
         
         /*-webkit-filter: drop-shadow(100px)*/
+
         -webkit-filter: saturate(8);
         /*-webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));*/
           
+
         /*filter: hue-rotate(20%)*/
+
       }
+      .narwhal{
+       -webkit-filter: drop-shadow(100px) 
+      }
+
     </style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
@@ -34,28 +42,77 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQZ0-RuaTPnc1GH8SKvO8euUTA6l-G6ak"></script>
 
-
+    <script src="script.js"></script>
     <script>
     //color class function 
+
     //TODO add celcious to the color  if ( tempF || tempC >= 40){
       //add els ifs for additional parameters 
-    function test(div) {
+
+    // function test(div) {
       
-      if ( tempF || tempC >= 40){
-        div.className = "catHead"
-      } else {
-        console.log('its cold')
-      }
-    }
+    //   if ( tempF >= 50 && tempF < 58){
+    //     div.className = "catHead"
+    //     } 
+    //     if  (tempF >= 58 && tempF < 65) {
+    //       div.className = "narwhal"
+    //     }
+    //     else {
+    //     console.log('its cold')
+    //   }
+    // };
+  
       
-//TODO: Need to make ajax call to select the weather stations 
+//TODO Need to make ajax call to select the weather stations 
 //each color will have its own class 
     var tempF;
     var locNM; 
     var NMlat;
     var NMlon;
+
     //each of these will be and overlay 
     //for in key ? 
+
+    var state = {
+      tempF: undefined,
+      locNM: undefined,
+      //so on
+
+      locations: []
+    };
+//animals
+   
+
+    // optional constructor
+    function Location(name, url, animal){
+      this.name = name;
+      this.url = url;
+      this.animalImage = animal;
+      // methods
+      this.checkState = checkState(this.url);
+      this.test = function test(){
+        if ( tempF >= 50 && tempF < 58){
+           div.className = "catHead"
+           } 
+           if  (tempF >= 58 && tempF < 65) {
+             div.className = "narwhal"
+           }
+           else {
+           console.log('its cold')
+         }
+
+      };
+    }
+
+
+    function init(){
+      for(i in locationList){
+        state.locations.push(new Location(locationList[i].name, locationList[i].url));
+        state.locations[i].checkState;
+      }
+    }
+
+
     var THE_ANIMALS = {
       narwhal: {
           image: "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png",
@@ -68,39 +125,79 @@
           dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
       }
     }
+
+
 // Ajax calls to weather underground api via geolookup and zipcode 
 // http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json
-//Currently Height Ashbury 
-    function callingAJAX(data) {
-    $.ajax({
-        url: urlType,
-        data: {
-            format: 'json'
-        },
-        dataType: "jsonp",
-        success: function(data) {
-            console.log(data)
 
-            // locNM = data.current_observation.observation_location.city
-            // NMlat = data.current_observation.observation_location.latitude
-            // NMlon = data.current_observation.observation_location.longitude
-            tempF = data.current_observation.dewpoint_f
-            console.log(tempF)
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert(textStatus, +' | ' + errorThrown);
-        }
-    });
+//Currently Height Ashbury 
+
+  var checkState = function(url) { $.ajax({
+          url: encodeURI(url), 
+          // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json"), 
+          
+          data: {
+            format: 'json'
+            
+          },
+
+          dataType: "jsonp",
+
+          success: function(data){
+            //console.log(data)
+            //console.log(data.current_observation.observation_location.city)
+
+             locNM = data.current_observation.observation_location.city
+             NMlat = data.current_observation.observation_location.latitude
+             NMlon = data.current_observation.observation_location.longitude 
+             tempF = data.current_observation.dewpoint_f
+            // then console.log the temperature 
+             console.log(data.current_observation.dewpoint_f)
+             // store dewpoin in a variable
+             // pass into the draw function as a parameter with if else 
+             //put in the the if else if logic in here to change class
+             //then put in the for in key lop 
+             // function test(div) {
+               
+             //   if ( tempF >= 50 && tempF < 58){
+             //     div.className = "catHead"
+             //     } 
+             //     if  (tempF >= 58 && tempF < 65) {
+             //       div.className = "narwhal"
+             //     }
+             //     else {
+             //     console.log('its cold')
+             //   }
+             // };
+
+            // for(var key in THE_ANIMALS){
+            //   console.log(key)
+            // } return key 
+
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+              alert (textStatus, + ' | ' + errorThrown);
+
+          }
+      });
 }
+checkState()
+
 //CUSTOM OVERLAY CATHEAD START
+
       // Set the custom overlay object's prototype to a new instance
       // of OverlayView. In effect, this will subclass the overlay class therefore
       // it's simpler to load the API synchronously, using
       // google.maps.event.addDomListener().
       // Note that we set the prototype to an instance, rather than the
       // parent class itself, because we do not wish to modify the parent class.
+
+
       var overlay;
+
       catOverlay.prototype = new google.maps.OverlayView();
+
+
       // Initialize the map and the custom overlay.
       function newBounds(lat1, lng1, lat2, lng2){
           var bounds = new google.maps.LatLngBounds(
@@ -109,6 +206,7 @@
           );
           return bounds;
       }
+
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
@@ -117,9 +215,14 @@
           disableDefaultUI: true,
           
         });
+
+
         // var bounds = new google.maps.LatLngBounds(
         //   new google.maps.LatLng(37.661708 , -122.44688),
         //   new google.maps.LatLng(37.78036, -122.2853560));
+
+
+
         
         var catImage = 'https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02';
         
@@ -127,33 +230,43 @@
         // The custom catOverlay object
         // the bounds of the image, and a reference to the map.
          
+
           
         // The custom catOverlay object 
         // the bounds of the image, and a reference to the map.
          overlay = new catOverlay(newBounds(37.661708 , -122.44688, 37.78036, -122.2853560), catImage, map) + new catOverlay(newBounds(37.761708 , -122.44688, 37.88036, -122.2853560), narwhal, map);
+
       } 
+
+
       /** @constructor */
       function catOverlay(bounds, image, map) {
+
         // Initialize all properties.
         this.bounds_ = bounds;
         this.image_ = image;
         this.map_ = map;
+
         // Define a property to hold the image's div. We'll
         // actually create this div upon receipt of the onAdd()
         // method so we'll leave it null for now.
         this.div_ = null;
+
         // Explicitly call setMap on this overlay.
         this.setMap(map);
       }
+
       /**
        * onAdd is called when the map's panes are ready and the overlay has been
        * added to the map.
        */
       catOverlay.prototype.onAdd = function() {
+
         var div = document.createElement('div');
         div.style.borderStyle = 'none';
         div.style.borderWidth = '0px';
         div.style.position = 'absolute';
+
         //TODO
         
         
@@ -164,22 +277,29 @@
         img.style.height = '100%';
         img.style.position = 'absolute';
         div.appendChild(img);
+
         this.div_ = div;
+
         // Add the element to the "overlayLayer" pane.
         var panes = this.getPanes();
         panes.overlayLayer.appendChild(div);
       };
+
       // TODO refactor so that this can be used by multiple overlays 
+
       catOverlay.prototype.draw = function() {
+
         // We use the south-west and north-east
         // coordinates of the overlay to peg it to the correct position and size.
         // To do this, we need to retrieve the projection from the overlay.
         var overlayProjection = this.getProjection();
+
         // Retrieve the south-west and north-east coordinates of this overlay
         // in LatLngs and convert them to pixel coordinates.
         // We'll use these coordinates to resize the div.
         var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
         var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+
         // Resize the image's div to fit the indicated dimensions.
         var div = this.div_;
         div.style.left = sw.x + 'px';
@@ -190,15 +310,24 @@
         //adding color class function 
         div.test = test
         div.test(div)
+
       };
+
       // The onRemove() method will be called automatically from the API if
       // we ever set the overlay's map property to 'null'.
+
       catOverlay.prototype.onRemove = function() {
         this.div_.parentNode.removeChild(this.div_);
         this.div_ = null;
       };
+
 //CUSTOM OVERLAY END
+
       google.maps.event.addDomListener(window, 'load', initMap);
+
+
+
+
   </script>
 
   </head>

@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html>
   <head>
  
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Weekend Test</title>
+    <title>Elie's Attempt 2</title>
     <style>
       html, body {
         height: 100%;
@@ -26,7 +25,13 @@
         /*-webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));*/
           
         /*filter: hue-rotate(20%)*/
+        /*background: blue;*/
       }
+       .narwhal {
+        background: blue;
+       /*-webkit-filter: drop-shadow(100px);*/
+      }
+
     </style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
@@ -39,16 +44,16 @@
     //color class function 
     //TODO add celcious to the color  if ( tempF || tempC >= 40){
       //add els ifs for additional parameters 
-    function test(div) {
+    // function test(div) {
       
-      if ( tempF || tempC >= 40){
-        div.className = "catHead"
-      } else {
-        console.log('its cold')
-      }
-    }
-      
-//TODO: Need to make ajax call to select the weather stations 
+    //   if ( tempF || tempC >= 40){
+    //     div.className = "catHead"
+    //   } else {
+    //     console.log('its cold')
+    //   }
+    // }
+
+//TODO Need to make ajax call to select the weather stations 
 //each color will have its own class 
     var tempF;
     var locNM; 
@@ -56,42 +61,21 @@
     var NMlon;
     //each of these will be and overlay 
     //for in key ? 
-    var THE_ANIMALS = {
-      narwhal: {
-          image: "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png",
-          zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
-          dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
-      },
-      cat: {
-          image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
-          zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94112.json",
-          dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
-      }
-    }
+    
+    // var map = new google.maps.Map(document.getElementById('map'), {
+    //   zoom: 12,
+    //   zoomControl: true,
+    //   center: {lat: 37.78036, lng: -122.44688},
+    //   disableDefaultUI: true,
+      
+    // });
+
+
 // Ajax calls to weather underground api via geolookup and zipcode 
 // http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json
 //Currently Height Ashbury 
-    function callingAJAX(data) {
-    $.ajax({
-        url: urlType,
-        data: {
-            format: 'json'
-        },
-        dataType: "jsonp",
-        success: function(data) {
-            console.log(data)
 
-            // locNM = data.current_observation.observation_location.city
-            // NMlat = data.current_observation.observation_location.latitude
-            // NMlon = data.current_observation.observation_location.longitude
-            tempF = data.current_observation.dewpoint_f
-            console.log(tempF)
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert(textStatus, +' | ' + errorThrown);
-        }
-    });
-}
+  
 //CUSTOM OVERLAY CATHEAD START
       // Set the custom overlay object's prototype to a new instance
       // of OverlayView. In effect, this will subclass the overlay class therefore
@@ -99,8 +83,41 @@
       // google.maps.event.addDomListener().
       // Note that we set the prototype to an instance, rather than the
       // parent class itself, because we do not wish to modify the parent class.
+      var overlays = []
+      var THE_ANIMALS = [
+        {
+            image: "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png",
+            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
+            dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
+        },
+        {
+            image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
+            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94112.json",
+            dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
+        }
+        ]
+
+      function getData(animal){
+         return $.ajax({
+               // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"), 
+               url: encodeURI(animal.zipcode), 
+               
+               data: {
+                 format: 'json'
+                 
+               },
+               dataType: "jsonp"
+           });
+      }
+
+      var promisesArray = []
+      
+      promisesArray = THE_ANIMALS.map(function(animal){
+        return getData(animal)
+      })
+        
+
       var overlay;
-      catOverlay.prototype = new google.maps.OverlayView();
       // Initialize the map and the custom overlay.
       function newBounds(lat1, lng1, lat2, lng2){
           var bounds = new google.maps.LatLngBounds(
@@ -122,7 +139,7 @@
         //   new google.maps.LatLng(37.78036, -122.2853560));
         
         var catImage = 'https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02';
-        
+
         var narwhal = "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png";
         // The custom catOverlay object
         // the bounds of the image, and a reference to the map.
@@ -131,7 +148,8 @@
         // The custom catOverlay object 
         // the bounds of the image, and a reference to the map.
          overlay = new catOverlay(newBounds(37.661708 , -122.44688, 37.78036, -122.2853560), catImage, map) + new catOverlay(newBounds(37.761708 , -122.44688, 37.88036, -122.2853560), narwhal, map);
-      } 
+        
+      
       /** @constructor */
       function catOverlay(bounds, image, map) {
         // Initialize all properties.
@@ -149,8 +167,10 @@
        * onAdd is called when the map's panes are ready and the overlay has been
        * added to the map.
        */
+      catOverlay.prototype = new google.maps.OverlayView();
+
       catOverlay.prototype.onAdd = function() {
-        var div = document.createElement('div');
+        div = document.createElement('div');
         div.style.borderStyle = 'none';
         div.style.borderWidth = '0px';
         div.style.position = 'absolute';
@@ -188,8 +208,8 @@
         div.style.height = (sw.y - ne.y) + 'px';
         
         //adding color class function 
-        div.test = test
-        div.test(div)
+        // div.test = test
+        // div.test(div)
       };
       // The onRemove() method will be called automatically from the API if
       // we ever set the overlay's map property to 'null'.
@@ -197,8 +217,56 @@
         this.div_.parentNode.removeChild(this.div_);
         this.div_ = null;
       };
-//CUSTOM OVERLAY END
-      google.maps.event.addDomListener(window, 'load', initMap);
+
+      Promise.all(promisesArray).then(function(resolvedArray){
+        resolvedArray.forEach(function(data, index, arr){
+             locNM = data.current_observation.observation_location.city
+             NMlat = data.current_observation.observation_location.latitude
+             NMlon = data.current_observation.observation_location.longitude 
+             tempF = data.current_observation.dewpoint_f
+            // then console.log the temperature 
+             // store dewpoin in a variable
+             // pass into the draw function as a parameter with if else
+             var overlay = new catOverlay(THE_ANIMALS[index].dimension, THE_ANIMALS[index].image, map)             
+
+
+             if ( tempF >= 50 && tempF < 58){
+               overlay.temp = "fifties"
+               } 
+               if  (tempF >= 58 && tempF < 65) {
+                 overlay.temp = "sixties"
+               }
+               else {
+               console.log('its cold')
+             } 
+
+              overlays.push(overlay)
+          })
+          
+        //console.log(data.current_observation.observation_location.city)
+      })
+    }
+    
+    google.maps.event.addDomListener(window, 'load', initMap)
+
+    setTimeout(function(){
+      for(overlay of overlays){
+        if ( tempF >= 50 && tempF < 58){
+          overlay.div_.className = "catHead"
+          } 
+          if  (tempF >= 58 && tempF < 65) {
+            overlay.div_.className = "narwhal"
+          }
+          else {
+          console.log('its cold')
+        }   
+      }  
+    },500)
+    
+    
+    
+    
+      // google.maps.event.addDomListener(window, 'load', initMap);
   </script>
 
   </head>

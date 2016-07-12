@@ -5,7 +5,7 @@
  
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Weekend Test</title>
+    <title>Cat Overlay 2</title>
     <style>
       html, body {
         height: 100%;
@@ -71,27 +71,31 @@
 // Ajax calls to weather underground api via geolookup and zipcode 
 // http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json
 //Currently Height Ashbury 
-    function callingAJAX(data) {
     $.ajax({
-        url: urlType,
-        data: {
+          // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"), 
+          url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json"), 
+          
+          data: {
             format: 'json'
-        },
-        dataType: "jsonp",
-        success: function(data) {
-            console.log(data)
-
-            // locNM = data.current_observation.observation_location.city
-            // NMlat = data.current_observation.observation_location.latitude
-            // NMlon = data.current_observation.observation_location.longitude
-            tempF = data.current_observation.dewpoint_f
-            console.log(tempF)
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert(textStatus, +' | ' + errorThrown);
-        }
-    });
-}
+            
+          },
+          dataType: "jsonp",
+          success: function(data){
+            //console.log(data)
+            //console.log(data.current_observation.observation_location.city)
+             locNM = data.current_observation.observation_location.city
+             NMlat = data.current_observation.observation_location.latitude
+             NMlon = data.current_observation.observation_location.longitude 
+             tempF = data.current_observation.dewpoint_f
+            // then console.log the temperature 
+             console.log(data.current_observation.dewpoint_f)
+             // store dewpoin in a variable
+             // pass into the draw function as a parameter with if else  
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+              alert (textStatus, + ' | ' + errorThrown);
+          }
+      });
 //CUSTOM OVERLAY CATHEAD START
       // Set the custom overlay object's prototype to a new instance
       // of OverlayView. In effect, this will subclass the overlay class therefore

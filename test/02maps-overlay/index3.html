@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html>
   <head>
  
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Weekend Test</title>
+    <title>test</title>
     <style>
       html, body {
         height: 100%;
@@ -39,16 +38,16 @@
     //color class function 
     //TODO add celcious to the color  if ( tempF || tempC >= 40){
       //add els ifs for additional parameters 
-    function test(div) {
+    // function test(div) {
       
-      if ( tempF || tempC >= 40){
-        div.className = "catHead"
-      } else {
-        console.log('its cold')
-      }
-    }
+    //   if ( tempF || >= 40){
+    //     div.className = "catHead"
+    //   } else {
+    //     console.log('its cold')
+    //   }
+    // }
       
-//TODO: Need to make ajax call to select the weather stations 
+//TODO Need to make ajax call to select the weather stations 
 //each color will have its own class 
     var tempF;
     var locNM; 
@@ -81,11 +80,26 @@
         success: function(data) {
             console.log(data)
 
-            // locNM = data.current_observation.observation_location.city
-            // NMlat = data.current_observation.observation_location.latitude
-            // NMlon = data.current_observation.observation_location.longitude
+            locNM = data.current_observation.observation_location.city
+            NMlat = data.current_observation.observation_location.latitude
+            NMlon = data.current_observation.observation_location.longitude
             tempF = data.current_observation.dewpoint_f
-            console.log(tempF)
+            console.log(data.current_observation.dewpoint_f)
+        
+    function test(div) {
+        for(overlay of overlays){
+          console.log("loppppp")
+          if ( tempF >= 50 && tempF < 58){
+            overlay.div_.className = "catHead"
+          } 
+          if  (tempF >= 58 && tempF < 65) {
+            overlay.div_.className = "narwhal"
+          }
+          else {
+          console.log('its cold')
+        }   
+      }
+      }  
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert(textStatus, +' | ' + errorThrown);
