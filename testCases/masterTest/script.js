@@ -73,7 +73,7 @@
         
       
       /** @constructor */
-      function catOverlay(bounds, image, map) {
+      function hoodOverlay(bounds, image, map) {
         // Initialize all properties.
         this.bounds_ = bounds;
         this.image_ = image;
@@ -89,9 +89,9 @@
        * onAdd is called when the map's panes are ready and the overlay has been
        * added to the map.
        */
-      catOverlay.prototype = new google.maps.OverlayView();
+      hoodOverlay.prototype = new google.maps.OverlayView();
 
-      catOverlay.prototype.onAdd = function() {
+      hoodOverlay.prototype.onAdd = function() {
         div = document.createElement('div');
         div.style.borderStyle = 'none';
         div.style.borderWidth = '0px';
@@ -112,7 +112,7 @@
         panes.overlayLayer.appendChild(div);
       };
       
-      catOverlay.prototype.draw = function() {
+      hoodOverlay.prototype.draw = function() {
         // We use the south-west and north-east
         // coordinates of the overlay to peg it to the correct position and size.
         // To do this, we need to retrieve the projection from the overlay.
@@ -135,7 +135,7 @@
       };
       // The onRemove() method will be called automatically from the API if
       // we ever set the overlay's map property to 'null'.
-      catOverlay.prototype.onRemove = function() {
+      hoodOverlay.prototype.onRemove = function() {
         this.div_.parentNode.removeChild(this.div_);
         this.div_ = null;
       };
@@ -150,7 +150,7 @@
              // store dewpoin in a variable
              // pass into the draw function as a parameter with if else
              console.log(tempF)
-             var overlay = new catOverlay(neighborhoods [index].dimension, neighborhoods [index].image, map)             
+             var overlay = new hoodOverlay(neighborhoods [index].dimension, neighborhoods [index].image, map)             
 
 
              if ( tempF >= 50 && tempF < 52){
@@ -163,19 +163,19 @@
                else {
                console.log('its cold')
              } 
-
               overlays.push(overlay)
           })
           
         //console.log(data.current_observation.observation_location.city)
       })
     }
-    
+  
     google.maps.event.addDomListener(window, 'load', initMap)
 
     setTimeout(function(){
-      console.log(overlays)
+      // console.log(overlays)
       for(overlay of overlays){
+        console.log('hello')
         if (overlay.temp  === "fifties" ){
         // if ( tempF >= 50 && tempF < 58){
           console.log(overlay.temp, "cat")
@@ -189,7 +189,7 @@
           console.log('its cold')
         }   
       }  
-    },1000)
+    },4000)
 
 //CUSTOM OVERLAY END
 
@@ -242,7 +242,7 @@ var infowindows = [];
 // block level scope via let 
   for (let i = 0; i < locations.length; i++) {
    location = locations[i];
-   console.log(location)
+   // console.log(location)
   
    infowindows.push(new google.maps.InfoWindow({
     content: location[4]
