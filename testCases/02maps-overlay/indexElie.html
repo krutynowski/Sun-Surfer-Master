@@ -28,9 +28,9 @@
         /*background: blue;*/
       }
        .narwhal {
-        opacity: 0.7;
-        background: white;
-       /*-webkit-filter: drop-shadow(90px);*/
+        opacity: 0.5;
+        /*background: blue;*/
+       -webkit-filter: drop-shadow(90px);
       }
 
     </style>
@@ -42,48 +42,14 @@
 
 
     <script>
-    //color class function 
-    //TODO add celcious to the color  if ( tempF || tempC >= 40){
-      //add els ifs for additional parameters 
-    // function test(div) {
-      
-    //   if ( tempF || tempC >= 40){
-    //     div.className = "catHead"
-    //   } else {
-    //     console.log('its cold')
-    //   }
-    // }
-
+  
 //TODO Need to make ajax call to select the weather stations 
 //each color will have its own class 
     var tempF;
     var locNM; 
     var NMlat;
     var NMlon;
-    //each of these will be and overlay 
-    //for in key ? 
-    
-    // var map = new google.maps.Map(document.getElementById('map'), {
-    //   zoom: 12,
-    //   zoomControl: true,
-    //   center: {lat: 37.78036, lng: -122.44688},
-    //   disableDefaultUI: true,
-      
-    // });
-
-
-// Ajax calls to weather underground api via geolookup and zipcode 
-// http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json
-//Currently Height Ashbury 
-
-  
-//CUSTOM OVERLAY CATHEAD START
-      // Set the custom overlay object's prototype to a new instance
-      // of OverlayView. In effect, this will subclass the overlay class therefore
-      // it's simpler to load the API synchronously, using
-      // google.maps.event.addDomListener().
-      // Note that we set the prototype to an instance, rather than the
-      // parent class itself, because we do not wish to modify the parent class.
+   
       var overlays = []
       var THE_ANIMALS = [
         {
@@ -135,21 +101,11 @@
           disableDefaultUI: true,
           
         });
-        // var bounds = new google.maps.LatLngBounds(
-        //   new google.maps.LatLng(37.661708 , -122.44688),
-        //   new google.maps.LatLng(37.78036, -122.2853560));
+        
         
         var catImage = 'https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02';
 
         var narwhal = "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png";
-        // The custom catOverlay object
-        // the bounds of the image, and a reference to the map.
-         
-          
-        // The custom catOverlay object 
-        // the bounds of the image, and a reference to the map.
-         // overlay = new catOverlay(newBounds(37.661708 , -122.44688, 37.78036, -122.2853560), catImage, map) + new catOverlay(newBounds(37.761708 , -122.44688, 37.88036, -122.2853560), narwhal, map);
-        
       
       /** @constructor */
       function catOverlay(bounds, image, map) {
