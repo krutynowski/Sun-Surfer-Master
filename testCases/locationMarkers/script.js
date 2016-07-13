@@ -48,10 +48,10 @@ function initMap() {
 
 
 var beaches = [
-  ['Bondi Beach', -33.890542, 151.274856, 4, 'This is a.'],
+  ['Bondi Beach', -33.890542, 151.274856, 4, '<IMG BORDER="0" ALIGN="Left" SRC="http://a.deviantart.net/avatars/p/i/pikiyo.png?3"> I am grumpy merh merh merh'],
   ['Coogee Beach', -33.923036, 151.259052, 5, 'This is b.'],
   ['Cronulla Beach', -34.028249, 151.157507, 3, 'This is c.'],
-  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2, 'Im work.'],
+  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2, 'Im working yes yes yes yse.'],
   ['Maroubra Beach', -33.950198, 151.259302, 1, 'Please work.']
 ];
 
