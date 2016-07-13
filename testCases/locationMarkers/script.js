@@ -1,16 +1,20 @@
-//image = 'http://www.geo.uzh.ch/~gboo/netap/img/catMarker.png';
-
+//Problem the last value of the beaches arrays array is population my info box
+//each info box needs to be populated with unique content
+//info bubbles! 
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     //center: {lat: 37.78036, lng: -122.44688},
-    center: {lat: -33.9, lng: 151.2}
+    center: {lat: -33.9, lng: 151.2}   
   });
 
   setMarkers(map); 
 
  } 
+
+
+
 
 // var contentString = '<div id="content">'+
 //       '<div id="siteNotice">'+
@@ -33,24 +37,27 @@ function initMap() {
 //       '</div>'+
 //       '</div>';
 //TODO: remove once info window works
+
   //var infowindow = null;
 
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
+
 //TODO: make these my locations for rooftops
-//TODO: push in location 
+// 
+
 
 var beaches = [
   ['Bondi Beach', -33.890542, 151.274856, 4, 'This is a.'],
   ['Coogee Beach', -33.923036, 151.259052, 5, 'This is b.'],
   ['Cronulla Beach', -34.028249, 151.157507, 3, 'This is c.'],
-  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2, 'This is d.'],
-  ['Maroubra Beach', -33.950198, 151.259302, 1, 'PLease work.']
+  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2, 'Im work.'],
+  ['Maroubra Beach', -33.950198, 151.259302, 1, 'Please work.']
 ];
 
 function setMarkers(map) {
-
-  // Adds markers to the map.
+  
+// Adds markers to the map.
 
   // Marker sizes are expressed as a Size of X,Y where the origin of the image
   // (0,0) is located in the top left of the image.
@@ -75,15 +82,23 @@ function setMarkers(map) {
     type: 'poly'
   };
 
-  for (var i = 0; i < beaches.length; i++) {
-    var beach = beaches[i];
-  var infowindow = new google.maps.InfoWindow({
-    content: beach[4]
-  });
-    //TODO: not going into the this function, WWHHYY
-    //trying closure 
+//iffy 
+// (function(){
+var beach;
+var infowindows = [];
+// block level scope via let 
+  for (let i = 0; i < beaches.length; i++) {
+   beach = beaches[i];
+   console.log(beach)
   
+   infowindows.push(new google.maps.InfoWindow({
+    content: beach[4]
+   }));
 
+     
+  //TODO:
+//The on click event is on the left ear, need to adjust the ancor so it works on the whole icon
+    
     var marker = new google.maps.Marker({
       position: {lat: beach[1], lng: beach[2]},
       map: map,
@@ -93,21 +108,26 @@ function setMarkers(map) {
       zIndex: beach[3],
       animation: google.maps.Animation.DROP
     });
-    console.log(marker)
+    //console.log(marker)
    
 
    google.maps.event.addListener(marker, 'click', function (innerKey) {
+   // debugger
    console.log("sooo grumpy")
-   //console.log(innerKey)
+   console.log(innerKey)
 
       // opening info window
-        infowindow.open(map, beaches[innerKey])
-         // infowindow.setContent(marker.content);
-        infowindow.open(map, this);
+        // infowindow.open(map, beaches[innerKey])
+         //infowindow.setContent(marker.content);
+        //infowindow.setContent(marker.beach[4]) 
+        infowindows[i].open(map, this);
       // }
     });
 
   }
+  // console.log(i)
+  // console.log(infowindows[i].getContent());
+ // })()
 }
 
 
