@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+ 
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Adding a Custom Overlay</title>
+    <title>Weather Markers</title>
     <style>
+      #test{
+
+      position: absolute;
+      z-index: 10;
+      }
+
       html, body {
         height: 100%;
         margin: 0;
@@ -12,44 +19,72 @@
       }
       #map {
         height: 100%;
+         z-index: 9;
       }
+      .catHead{
+        opacity: 0.7;
+
+
+        /*CSS BLEND MODES*/
+        /*-webkit-filter: grayscale(100%); filter: grayscale(100%);*/
+        /*-webkit-filter: sepia(100%)*/
+        
+        /*-webkit-filter: drop-shadow(100px)*/
+        -webkit-filter: saturate(8);
+        /*-webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));*/
+          
+        /*filter: hue-rotate(20%)*/
+        /*background: blue;*/
+      }
+       .narwhal {
+        opacity: 0.5;
+        /*background: blue;*/
+       -webkit-filter: drop-shadow(90px);
+      }
+
     </style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/2.10.0/d3.v2.min.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQZ0-RuaTPnc1GH8SKvO8euUTA6l-G6ak"></script>
-
     <script>
-    
-      var tempF;
-      var weatherStations = [
+  
+//TODO Need to make ajax call to select the weather stations 
+//each color will have its own class 
+
+    var tempF;
+    var locNM; 
+    var NMlat;
+    var NMlon;
+
+   
+      var overlays = []
+      var THE_ANIMALS = [
         {
-            name: "NOPA",
-            image: " ",
+             image: " ",
             zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
-            dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560) 
+            dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
         },
-        {   
-            name: "Outer Mission",
+        {
             image: " ",
             zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94112.json",
             dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
         }
-      ]
+        ]
 
-      var iconImg = {
+        var iconImg = {
         '60': 'http://image.flaticon.com/icons/png/128/146/146200.png',
-        
+
         '61': 'https://cdn3.iconfinder.com/data/icons/weather-91/64/1-06-128.png'
       }
-      
 
 
-      function getData(hood){
+
+      function getData(animal){
          return $.ajax({
-                
-               url: encodeURI(hood.zipcode), 
+               // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"), 
+               url: encodeURI(animal.zipcode), 
                
                data: {
                  format: 'json'
@@ -59,14 +94,15 @@
            });
       }
 
-       var promisesArray2 = []
+      var promisesArray = []
       
-      promisesArray2 = weatherStations.map(function(hood){
-        return getData(hood)
+      promisesArray = THE_ANIMALS.map(function(animal){
+        return getData(animal)
       })
+        
 
       var overlay;
-
+      // Initialize the map and the custom overlay.
       function newBounds(lat1, lng1, lat2, lng2){
           var bounds = new google.maps.LatLngBounds(
               new google.maps.LatLng(lat1 , lng1),
@@ -74,40 +110,47 @@
           );
           return bounds;
       }
-
-      // Initialize the map and the custom overlay.
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           zoomControl: true,
           center: {lat: 37.78036, lng: -122.44688},
           disableDefaultUI: true,
+          
         });
+        
+        
+        // var catImage = 'https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02';
 
-
-      function weatherStationOverlay(bounds, image, map) {
-
+        // var narwhal = "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png";
+      
+      /** @constructor */
+      function catOverlay(bounds, image, map) {
         // Initialize all properties.
         this.bounds_ = bounds;
         this.image_ = image;
         this.map_ = map;
+        // Define a property to hold the image's div. We'll
+        // actually create this div upon receipt of the onAdd()
+        // method so we'll leave it null for now.
         this.div_ = null;
+        // Explicitly call setMap on this overlay.
         this.setMap(map);
       }
-
-      /** @constructor */
-
       /**
        * onAdd is called when the map's panes are ready and the overlay has been
        * added to the map.
        */
-      weatherStationOverlay.prototype.onAdd = function() {
+      catOverlay.prototype = new google.maps.OverlayView();
 
-        var div = document.createElement('div');
+      catOverlay.prototype.onAdd = function() {
+        div = document.createElement('div');
         div.style.borderStyle = 'none';
         div.style.borderWidth = '0px';
         div.style.position = 'absolute';
-
+        //TODO
+        
+        
         // Create the img element and attach it to the div.
         var img = document.createElement('img');
         img.src = this.image_;
@@ -115,48 +158,41 @@
         img.style.height = '100%';
         img.style.position = 'absolute';
         div.appendChild(img);
-
         this.div_ = div;
-
         // Add the element to the "overlayLayer" pane.
         var panes = this.getPanes();
         panes.overlayLayer.appendChild(div);
       };
-
-      weatherStationOverlay.prototype.draw = function() {
-
+      // TODO refactor so that this can be used by multiple overlays 
+      catOverlay.prototype.draw = function() {
         // We use the south-west and north-east
         // coordinates of the overlay to peg it to the correct position and size.
         // To do this, we need to retrieve the projection from the overlay.
         var overlayProjection = this.getProjection();
-
         // Retrieve the south-west and north-east coordinates of this overlay
         // in LatLngs and convert them to pixel coordinates.
         // We'll use these coordinates to resize the div.
         var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
         var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
-
         // Resize the image's div to fit the indicated dimensions.
         var div = this.div_;
         div.style.left = sw.x + 'px';
         div.style.top = ne.y + 'px';
-        div.style.width = (ne.x - sw.x) + 'px';
+        div.style.width = (ne.x - sw.x)  + 'px';
         div.style.height = (sw.y - ne.y) + 'px';
+        
+        //adding color class function 
+        // div.test = test
+        // div.test(div)
       };
-
-      weatherStationOverlay.prototype = new google.maps.OverlayView(); 
-
-        // The custom weatherStationOverlay object contains the USGS image,
-        // the bounds of the image, and a reference to the map.
-        overlay = new weatherStationOverlay(bounds, srcImage, map);
       // The onRemove() method will be called automatically from the API if
       // we ever set the overlay's map property to 'null'.
-      weatherStationOverlay.prototype.onRemove = function() {
+      catOverlay.prototype.onRemove = function() {
         this.div_.parentNode.removeChild(this.div_);
         this.div_ = null;
       };
 
-       Promise.all(promisesArray).then(function(resolvedArray){
+      Promise.all(promisesArray).then(function(resolvedArray){
         resolvedArray.forEach(function(data, index, arr){
              locNM = data.current_observation.observation_location.city
              NMlat = data.current_observation.observation_location.latitude
@@ -166,53 +202,51 @@
              // store dewpoin in a variable
              // pass into the draw function as a parameter with if else
              console.log(tempF)
-             var overlay = new catOverlay(neighborhoods [index].dimension, neighborhoods [index].image, map)             
+             var overlay = new catOverlay(THE_ANIMALS[index].dimension, THE_ANIMALS[index].image, map)             
 
+             function iconSet(){
+               if  (tempF === 61) {
+                console.log('testing')
+                  overlay.temp = "60"
+                  overlay.image_ = iconImg["61"];
+                  }
+                  else if ( tempF === 50 ){
+                  overlay.temp = "61"
+                  overlay.image_ = iconImg["60"]
+                 }
+                 else {
+                 console.log('its cold')
+                }
+                overlays.push(overlay)
+              
+              }iconSet()           
 
-             if ( tempF >= 50 && tempF < 52){
-               overlay.temp = "fifties"
-               // ovarlay
-               } 
-               if  (tempF >= 53 && tempF < 65) {
-                 overlay.temp = "sixties"
-               }
-               else {
-               console.log('its cold')
-             } 
-
-              overlays.push(overlay)
-          })
-          
-        //console.log(data.current_observation.observation_location.city)
+          })  
       })
     }
     
     google.maps.event.addDomListener(window, 'load', initMap)
 
-    setTimeout(function(){
-      console.log(overlays)
-      for(overlay of overlays){
-        if (overlay.temp  === "fifties" ){
-        // if ( tempF >= 50 && tempF < 58){
-          console.log(overlay.temp, "cat")
-          overlay.div_.className = "catHead"
-          } 
-           if  ( overlay.temp === "sixties") {
-            console.log(overlay.temp, "narwal")
-            overlay.div_.className = "narwhal"
-          }
-          else {
-          console.log('its cold')
-        }   
-      }  
-    },1000)
-
-      
-
+    // setTimeout(function(){
+    //   //console.log(overlays)
+    //       // debugger
+    // },5000)
+    
+    //
+    
+    
+      // google.maps.event.addDomListener(window, 'load', initMap);
   </script>
+
   </head>
   <body>
-    <div id="map"></div>
-    <div id="capture"></div>
+    <!-- <h1 class="animated infinite bounce">Example</h1> -->
+
+   <!-- <div id="wraper"> -->
+        <div id='test'>'test'</div>  
+        <div id="map"></div>
+  <!-- </div> -->
+    
+    
   </body>
 </html>

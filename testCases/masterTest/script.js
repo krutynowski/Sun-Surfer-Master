@@ -31,10 +31,10 @@
         }
         ]
 
-      function getData(animal){
+      function getData(place){
          return $.ajax({
                // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"), 
-               url: encodeURI(animal.zipcode), 
+               url: encodeURI(place.zipcode), 
                
                data: {
                  format: 'json'
@@ -42,12 +42,12 @@
                },
                dataType: "jsonp"
            });
-      }
+      } 
 
       var promisesArray = []
       
-      promisesArray = neighborhoods.map(function(animal){
-        return getData(animal)
+      promisesArray = neighborhoods.map(function(place){
+        return getData(place)
       })
         
 
@@ -161,11 +161,11 @@
                  overlay.temp = "sixties"
                }
                else {
-               console.log('its cold')
+               console.log('brrrrrr')
              } 
               overlays.push(overlay)
           })
-          
+          console.log(locNM)
         //console.log(data.current_observation.observation_location.city)
       })
     }
