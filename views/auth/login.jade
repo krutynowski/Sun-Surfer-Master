@@ -1,0 +1,11 @@
+extends ./layout
+
+block content 
+  h1 Login 
+  form(action="/users/login" method="POST")
+    p
+      input(type="text" name="user[username]")
+    p
+      input(type="password" name="user[password]")
+    p
+      input(type="submit" value="Log In")

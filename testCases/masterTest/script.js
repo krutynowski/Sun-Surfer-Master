@@ -99,7 +99,7 @@ function initMap() {
     zoom: 12,
     zoomControl: true,
     center: {lat: 37.78036, lng: -122.44688},
-    // disableDefaultUI: true, 
+    disableDefaultUI: true, 
     styles:  [
 {
         "featureType": "administrative",

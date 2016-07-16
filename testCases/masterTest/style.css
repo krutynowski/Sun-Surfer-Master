@@ -10,16 +10,40 @@
 .catHead{
   opacity: 0.7;
   -webkit-filter: saturate(8);  
-/*filter: hue-rotate(20%)*/
+filter: hue-rotate(20%);
 
 }
 .narwhal {
   opacity: 0.7;
   /*background: white;*/
+  /*-webkit-filter: hue-rotate(180deg);*/
   -webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
 }
 #legend {
         background: white;
         padding: 10px;
       }
+ #test{
+  opacity: .64;
+      /*Yellow*/
+            /*-webkit-filter: hue-rotate(deg0);*/
+      /*Lime*/
+            /*-webkit-filter: hue-rotate(18deg);*/
+      /*Green*/
+            /*-webkit-filter: hue-rotate(42deg);*/
+      /*Teal*/      
+            /*-webkit-filter: hue-rotate(80deg);*/
+      /*Teal*/       
+            -webkit-filter: hue-rotate(123deg);
+            /*-webkit-filter: hue-rotate(171deg);*/
+            /*-webkit-filter: hue-rotate(333deg);*/
+            /*-webkit-filter: hue-rotate(deg);*/
+      position: absolute;
+      z-index: 10;
+      height: 150px;
+      width: 150px;
+      background-color: #FFEE00;
+      margin-left: 40%;
+      margin-top: 40%;
 
+      }

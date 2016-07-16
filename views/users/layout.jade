@@ -1,0 +1,14 @@
+      <!DOCTYPE html>
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  title users layout
+  link(rel='stylesheet', href='/stylesheets/style.css')
+body
+  if(currentUser)
+    p
+      h1 Welcome back #{currentUser.username}
+      a(href="/users/logout") Logout
+  block content
+Status SUN Surfers !!!
+
