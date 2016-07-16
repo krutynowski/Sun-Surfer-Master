@@ -17,16 +17,18 @@
       }
       .catHead{
         opacity: 0.7;
+        /*-webkit-filter: saturate(8);*/
         /*CSS BLEND MODES*/
         /*-webkit-filter: grayscale(100%); filter: grayscale(100%);*/
-        /*-webkit-filter: sepia(100%)*/
+
+        /*-webkit-filter: sepia(100%);*/
         
-        /*-webkit-filter: drop-shadow(100px)*/
-        -webkit-filter: saturate(8);
-        /*-webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));*/
+        
+        -webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
           
         /*filter: hue-rotate(20%)*/
       }
+
     </style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
@@ -41,12 +43,19 @@
       //add els ifs for additional parameters 
     function test(div) {
       
-      if ( tempF || tempC >= 40){
-        div.className = "catHead"
-      } else {
-        console.log('its cold')
-      }
+             if ( tempF >= 50 && tempF < 66){
+               div.className = "catHead"
+               // ovarlay
+               } 
+               // if  (tempF >= 53 && tempF < 0) {
+               //   div.className = "narwhal"
+               // }
+               else {
+               console.log('its cold')
+             
+     
     }
+  }
       
 //TODO: Need to make ajax call to select the weather stations 
 //each color will have its own class 
@@ -60,12 +69,12 @@
       narwhal: {
           image: "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png",
           zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
-          dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
+          dimension: newBounds(100.861708 , -100.44688, 37.78036, -122.2853560)
       },
       cat: {
           image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
           zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94112.json",
-          dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
+          dimension: newBounds(38.761708 , -122.44688, 37.88036, -122.2853560)
       }
     }
 // Ajax calls to weather underground api via geolookup and zipcode 
@@ -129,7 +138,7 @@
         
         var narwhal = "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png";
         // The custom catOverlay object
-        // the bounds of the image, and a reference to the map.
+        // the bounds of the images, and a reference to the map.
          
           
         // The custom catOverlay object 
@@ -152,6 +161,7 @@
       /**
        * onAdd is called when the map's panes are ready and the overlay has been
        * added to the map.
+       //panes group map layers 
        */
       catOverlay.prototype.onAdd = function() {
         var div = document.createElement('div');

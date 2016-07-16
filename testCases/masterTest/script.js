@@ -43,6 +43,19 @@ var weatherStations = [
         dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
     }
     ]
+// var iconImg = [
+
+//   "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+//   "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+//   "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
+//   "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", 
+//   "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", 
+//   "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", 
+//   "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", 
+//   "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", 
+//   "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", 
+//   "91", "92", "93", "94", "95", "96", "97", "98", "99"
+//   ]    
 
 var iconImg = {
   '60': 'http://image.flaticon.com/icons/png/128/146/146200.png',
@@ -80,14 +93,110 @@ function newBounds(lat1, lng1, lat2, lng2){
     return bounds;
 }
 
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     zoomControl: true,
     center: {lat: 37.78036, lng: -122.44688},
-    disableDefaultUI: true, 
-  
+    // disableDefaultUI: true, 
+    styles:  [
+{
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.neighborhood",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#00ff71"
+            },
+            {
+                "gamma": "0.39"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#27b0cd"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
 });
+
   
 setMarkers(map);
     
@@ -169,13 +278,15 @@ Promise.all(promisesArray).then(function(resolvedArray){
           var tempOverlay = new hoodOverlay(weatherStations[index].dimension, weatherStations[index].image, map)
           
           function iconSet(){
-               if  (tempF === 62) {
+
+
+               if  (tempF === 64) {
                 console.log('testing')
-                  tempOverlay.temp = "60"
+                  // tempOverlay.temp = "60"
                   tempOverlay.image_ = iconImg["61"];
                   }
-                  else if ( tempF === 50 ){
-                    tempOverlay.temp = "61"
+                  else if ( tempF === 51 ){
+                    // tempOverlay.temp = "61"
                     tempOverlay.image_ = iconImg["60"]
                     }
                     else {
@@ -184,6 +295,21 @@ Promise.all(promisesArray).then(function(resolvedArray){
                   tempOverlays.push(tempOverlay)
                 
             }iconSet() 
+
+          // basePath = "/public/folder/myIcon."
+          // start = 40
+          // end = 90
+          // function iconArrayGen(basePath, start, end){          
+          //     for (i=0; i<iconImg.length; i++){
+          //        if (iconImg >= sat && iconImg < end) {
+          //           iconImg.appendChild(basePath + i + ".png")
+          //        } else {
+          //           iconImg.appendChild(basePath + i ".png")
+          //        }
+
+          //   }
+          // }
+
 
             var areaOverlay = new hoodOverlay(neighborhoods [index].dimension, neighborhoods [index].image, map)             
 
@@ -237,11 +363,11 @@ setTimeout(function(){
 
 var locations = [
 
-    ['SOMA', 37.77852, -122.40991539999999, 4, '<IMG BORDER="0" ALIGN="Left" SRC="http://a.deviantart.net/avatars/p/i/pikiyo.png?3"> SOMA'],
-    ['NOPA', 37.77573,  -122.44248, 5, 'NOPA.'],
-    ['Down Town',37.77493, -122.41942, 3, 'Down Town'],
-    ['Mission', 37.75986, -122.41480, 2, 'Mission'],
-    ['Potrero', 37.76626,  -122.40789, 1, 'Potrero']
+    ['SOMA', 37.77852, -122.40991539999999, 4, '<IMG BORDER="0" ALIGN="Left" SRC="http://a.deviantart.net/avatars/p/i/pikiyo.png?3"> FUCKING AWESOME TECH'],
+    ['NOPA', 37.77573,  -122.44248, 5, 'ITS COLD HERE.'],
+    ['Down Town',37.77493, -122.41942, 3, 'NO PUBLIC RESTROOMS'],
+    ['Mission', 37.75986, -122.41480, 2, 'FOOOOODDDD HERE'],
+    ['Potrero', 37.76626,  -122.40789, 1, 'NATIVES']
     ];
 
 
@@ -308,3 +434,5 @@ for (let i = 0; i < locations.length; i++) {
    }
 }
 //MARKERS + INFO WINDOWS END
+
+

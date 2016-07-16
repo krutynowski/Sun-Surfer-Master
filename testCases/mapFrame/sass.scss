@@ -1,0 +1,42 @@
+@import "compass/css3";
+
+$size: 30em;
+
+.map {
+  border: 1em solid #2980b9;
+  height: $size;
+  left: 50%;
+  margin-left: 6em;
+  margin-top: 6em;
+  overflow: hidden;
+  position: absolute;
+  top: 10%;
+  transition: 0.4s;
+  transform: rotate(-45deg) translate3D(-50%, -50%, 0);
+  width: $size;
+}
+  
+  .map__inner {
+    height: ($size / 2) + $size;
+    left: 0; 
+    position: absolute;
+    top: 0;
+    transition: 0.4s;
+    transform: rotate(45deg) translate3D(-25%, 0, 0);  
+    width: ($size / 2) + $size;
+  }
+
+  .map__canvas {
+    height: 100%;
+    width: 100%;
+  }
+
+
+html {
+  background: #34495e;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}

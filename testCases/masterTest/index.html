@@ -10,17 +10,27 @@
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/2.10.0/d3.v2.min.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQZ0-RuaTPnc1GH8SKvO8euUTA6l-G6ak"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&key=AIzaSyDQZ0-RuaTPnc1GH8SKvO8euUTA6l-G6ak"></script>
 
-   
+  <!--  <script
+  src="https://maps.googleapis.com/maps/api/js?callback=initMap&signed_in=true&key=AIzaSyDQZ0-RuaTPnc1GH8SKvO8euUTA6l-G6ak" async defer>
+</script> -->
     <script type="text/javascript" src="script.js" ></script>
     <link rel="stylesheet" href="style.css">
 
   </head>
   <body>
     <!-- <h1 class="animated infinite bounce">Example</h1> -->
-    <div id="test"></div>
-    <div id="map"></div>
-    <div id="info"></div>  
+     <div id="map">
+      <div class="map__inner">
+      <div id="js-map" class="map__canvas"></div>
+    </div> 
+     <!-- <div id="legend"><h3>Legend</h3></div> -->
+  
+
+
+
+   
+
   </body>
 </html>

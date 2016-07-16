@@ -18,3 +18,8 @@
   /*background: white;*/
   -webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
 }
+#legend {
+        background: white;
+        padding: 10px;
+      }
+

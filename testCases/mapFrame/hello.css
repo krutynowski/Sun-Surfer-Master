@@ -1,0 +1,53 @@
+/*
+Error: File to import not found or unreadable: compass/css3.
+        on line 1 of sass.scss
+
+1: @import "compass/css3";
+2: 
+3: $size: 30em;
+4: 
+5: .map {
+6:   border: 1em solid #2980b9;
+
+Backtrace:
+sass.scss:1
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:45:in `import'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:313:in `visit_import'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:159:in `visit'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:391:in `run'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/gems/sass-3.4.22/bin/sass:13:in `<top (required)>'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/bin/sass:23:in `load'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/bin/sass:23:in `<main>'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `eval'
+/Users/Kinga/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: compass/css3.\A         on line 1 of sass.scss\A \A 1: @import \"compass/css3\";\A 2: \A 3: $size: 30em;\A 4: \A 5: .map {\A 6:   border: 1em solid #2980b9;"; }
