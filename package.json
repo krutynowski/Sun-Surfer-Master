@@ -1,0 +1,34 @@
+{
+  "name": "sun-surfer-master",
+  "version": "1.0.0",
+  "description": "sun surfer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krutynowski/Sun-Surfer-Master.git"
+  },
+  "keywords": [
+    "sun"
+  ],
+  "author": "kinga rutynowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krutynowski/Sun-Surfer-Master/issues"
+  },
+  "homepage": "https://github.com/krutynowski/Sun-Surfer-Master#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "cookie-session": "^2.0.0-alpha.1",
+    "express": "^4.14.0",
+    "knex": "^0.11.7",
+    "locus": "^1.2.0",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-google-oauth20": "^1.0.0",
+    "pug": "^2.0.0-beta3"
+  }
+}
