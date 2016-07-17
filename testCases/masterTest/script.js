@@ -22,14 +22,44 @@ var neighborhoods  = [
         image: "public/hoodOverlays/presidio.png",
         // image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
-        dimension: newBounds(37.778891, -122.4920386, 37.81480176, -122.43670545)
+        dimension: newBounds(37.777891, -122.4920386, 37.81500176, -122.43670545)
     },
-    // {   
-    //     name: "Marina",
-    //     image: "public/hoodOverlays/marina.png",
-    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94123.json",
-    //     dimension: newBounds(37.861708 , -122.48528481, 37.98036, -122.2853560)
-    // },
+    {   
+        name: "Marina",
+        image: "public/hoodOverlays/marina.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94123.json",
+        dimension: newBounds(37.78850081, -122.45102952, 37.8113986, -122.41543442)
+    },
+    {   
+        name: "Inner Richmond",
+        image: "public/hoodOverlays/innerRichmond.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94118.json",
+        dimension: newBounds(37.76871501, -122.48717258, 37.79433718, -122.44001002)
+    },
+    {   
+        name: "Pacific Heights",
+        image: "public/hoodOverlays/pacificHeights.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94115.json",
+        dimension: newBounds(37.77777043, -122.44674683, 37.7989493, -122.4131012)
+    },
+    {   
+        name: "Sunset",
+        image: "public/hoodOverlays/sunSet.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94122.json",
+        dimension: newBounds(37.72673718, -122.5142616, 37.77561441, -122.44400024)
+    },
+    {   
+        name: "Lake Merced",
+        image: "public/hoodOverlays/lakeMerced.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94132.json",
+        dimension: newBounds(37.67477129, -122.5100384, 37.73541279, -122.46705271)
+    },
+    {   
+        name: "Haight",
+        image: "public/hoodOverlays/haight.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
+        dimension: newBounds(37.75704423, -122.45459667, 37.787891, -122.41585593)
+    },
     // {
     //     name: "HOOD",
     //     image: "public/hoodOverlays/name.png",
@@ -40,15 +70,50 @@ var neighborhoods  = [
 
 var weatherStations = [
     {
-         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
         dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
     },
     {
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94112.json",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
         dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
-    }
+    },
+    {
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94123.json",
+        dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
+    },
+    {
+        name: "Pacific Heights",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94118.json",
+        dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
+    },
+    {
+        name: "Inner Richmond",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94115.json",
+        dimension: newBounds(37.76871501, -122.48717258, 37.79333718, -122.44001002)
+    },
+    {   
+        name: "Sunset",
+        image: "public/hoodOverlays/pacificHeights.png",
+        zipcode: " ",
+        dimension: newBounds(37.77777043, -122.44674683, 37.7989493, -122.4131012)
+    },
+    {   
+        name: "Lake Merced",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94132.json",
+        dimension: newBounds(37.72673718, -122.5142616, 37.77561441, -122.44400024)
+    },
+    {   
+        name: "Haight",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
+        dimension: newBounds(37.67477129, -122.5100384, 37.73541279, -122.46705271)
+    },
     ]
 // var iconImg = [
 
@@ -320,20 +385,36 @@ Promise.all(promisesArray).then(function(resolvedArray){
 
             var areaOverlay = new hoodOverlay(neighborhoods [index].dimension, neighborhoods [index].image, map)             
 
-              if ( tempF >= 49 && tempF < 52){
-              areaOverlay.temp = "fifties"
+              if (tempF <= 49){
+              areaOverlay.temp = "forties"
               // ovarlay
               } 
-              if  (tempF >= 53 && tempF < 66) {
-                areaOverlay.temp = "sixties"
+              if  (tempF >= 50 && tempF <= 53) {
+                areaOverlay.temp = "lowFifties"
               }
-              else {
-
-               console.log('brrrrrr')
-             } 
-
+              else if  (tempF >= 54 && tempF <= 57) {
+                areaOverlay.temp = "midFifties"
+              }
+              else if  (tempF >= 58 && tempF <= 61) {
+                areaOverlay.temp = "highFifties"
+              }
+              else if  (tempF >= 62 && tempF <= 65) {
+                areaOverlay.temp = "lowSixties"
+              }
+              else if  (tempF >= 66 && tempF <= 69) {
+                areaOverlay.temp = "highSixties"
+              }
+              else if  (tempF >= 70 && tempF <= 74) {
+                areaOverlay.temp = "lowSeventees"
+              }
+              else if  (tempF >= 75 && tempF <= 79) {
+                areaOverlay.temp = "highSeventees"
+              }
+              else if   (tempF >= 80 ) {
+                areaOverlay.temp = "eighties"
+        }
           areaOverlays.push(areaOverlay)
-            
+
       })
       console.log(locNM)
     //console.log(data.current_observation.observation_location.city)
@@ -346,17 +427,44 @@ setTimeout(function(){
   // console.log(overlays)
   for(areaOverlay of areaOverlays){
     console.log('hello')
-    if (areaOverlay.temp  === "fifties" ){
+    if (areaOverlay.temp  === "forties" ){
     // if ( tempF >= 50 && tempF < 58){
-      console.log(areaOverlay.temp, "cat")
-      areaOverlay.div_.className = "catHead"
+      areaOverlay.div_.className = "darkBlue"
       } 
-       if  ( areaOverlay.temp === "sixties") {
-        console.log(areaOverlay.temp, "narwal")
-        areaOverlay.div_.className = "narwhal"
+       else if  ( areaOverlay.temp === "lowFifties") {
+        console.log(areaOverlay.temp, "narhwal")
+        areaOverlay.div_.className = "blue"
+      }
+      else if  ( areaOverlay.temp === "midFifties") {
+        console.log(areaOverlay.temp, "pea")
+        areaOverlay.div_.className = "teal"
+      }
+      else if  ( areaOverlay.temp === "highFifties") {
+        console.log(areaOverlay.temp, "en")
+        areaOverlay.div_.className = "green"
+      }
+      else if  ( areaOverlay.temp === "lowSixties") {
+        console.log(areaOverlay.temp, "lim")
+        areaOverlay.div_.className = "lime"
+      }
+      else if  ( areaOverlay.temp === "highSixties") {
+        console.log(areaOverlay.temp, "mellow")
+        areaOverlay.div_.className = "yellow"
+      }
+      else if  ( areaOverlay.temp === "lowSeventees") {
+        console.log(areaOverlay.temp, "lo")
+        areaOverlay.div_.className = "lightOrange"
+      }
+      else if  ( areaOverlay.temp === "highSeventees") {
+        console.log(areaOverlay.temp, "or")
+        areaOverlay.div_.className = "orange"
+      }
+      else if  ( areaOverlay.temp === "eighties") {
+        console.log(areaOverlay.temp, "red")
+        areaOverlay.div_.className = "red"
       }
       else {
-      console.log('its cold')
+      console.log('off the charts')
     }   
   }  
 },4000)

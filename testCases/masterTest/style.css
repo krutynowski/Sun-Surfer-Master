@@ -7,40 +7,55 @@
       #map {
         height: 100%;
       }
-.catHead{
-  opacity: 0.7;
-  -webkit-filter: saturate(8);  
-filter: hue-rotate(20%);
 
+ /*COLLOR FILLTERS FOR NEIGHBORHODS*/  
+
+/*Redish 80+ */
+.red {
+    -webkit-filter: hue-rotate(310deg);
+}  
+ /* 75 - 79 */ 
+.orange {
+    -webkit-filter: hue-rotate(333deg); 
+}      
+/* 70 - 74*/ 
+ .lightOrange{
+    -webkit-filter: hue-rotate(deg);
+ }          
+ /* 66 -69*/  
+ .yellow {
+    -webkit-filter: hue-rotate(0deg);
+ }
+ /*Lime 62-65*/
+.lime{
+    -webkit-filter: hue-rotate(18deg);}
 }
-.narwhal {
-  opacity: 0.7;
-  /*background: white;*/
-  /*-webkit-filter: hue-rotate(180deg);*/
-  -webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
+/*Green  58-61*/
+.green {
+    -webkit-filter: hue-rotate(42deg);
 }
-#legend {
-        background: white;
-        padding: 10px;
-      }
+/*Teal 54-57*/ 
+.teal{
+  -webkit-filter: hue-rotate(80deg)
+ }
+      /*Blue 50-53*/  
+.blue{
+  -webkit-filter: hue-rotate(123deg);
+}     
+      /*Darker Blue -49 */  
+.darkBlue{
+  -webkit-filter: hue-rotate(161deg);
+}      
+
+
+
+
  #test{
   opacity: .64;
-      /*Yellow*/
-            /*-webkit-filter: hue-rotate(deg0);*/
-      /*Lime*/
+      /*Lime 62-65*/
             /*-webkit-filter: hue-rotate(18deg);*/
-      /*Green*/
-            /*-webkit-filter: hue-rotate(42deg);*/
-      /*Teal*/      
+      /*Teal 54-57*/      
             /*-webkit-filter: hue-rotate(80deg);*/
-      /*Blue*/       
-            /*-webkit-filter: hue-rotate(123deg);*/
-       /*Darker Blue*/  
-             /*-webkit-filter: hue-rotate(175deg);*/
-      /*Orange*/ 
-            /*-webkit-filter: hue-rotate(333deg);*/
-      /*Redish      */
-            /*-webkit-filter: hue-rotate(310deg);*/
       position: absolute;
       z-index: 10;
       height: 150px;
