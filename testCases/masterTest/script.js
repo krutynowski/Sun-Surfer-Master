@@ -12,14 +12,18 @@ var tempOverlays = []
 
 var neighborhoods  = [
     {
-        name: "NOPA",
-        image: "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
-        dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)  
+        name: "Outer Richmond",
+        image: "public/hoodOverlays/oRichmond.png",
+        // image: "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
+        // dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)  
+
+        dimension: newBounds(37.76623674, -122.51496642, 37.79252937, -122.4725271)  
     },
     {   
         name: "Outer Mission",
-        image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
+        image: "public/hoodOverlays/oRichmond.png.png",
+        // image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94112.json",
         dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
     },
@@ -96,7 +100,7 @@ function newBounds(lat1, lng1, lat2, lng2){
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+    zoom: 14,
     zoomControl: true,
     center: {lat: 37.78036, lng: -122.44688},
     disableDefaultUI: true, 
@@ -277,24 +281,24 @@ Promise.all(promisesArray).then(function(resolvedArray){
               
           var tempOverlay = new hoodOverlay(weatherStations[index].dimension, weatherStations[index].image, map)
           
-          function iconSet(){
+          // function iconSet(){
 
 
-               if  (tempF === 64) {
-                console.log('testing')
-                  // tempOverlay.temp = "60"
-                  tempOverlay.image_ = iconImg["61"];
-                  }
-                  else if ( tempF === 51 ){
-                    // tempOverlay.temp = "61"
-                    tempOverlay.image_ = iconImg["60"]
-                    }
-                    else {
-                    console.log('its cold')
-                  }
-                  tempOverlays.push(tempOverlay)
+          //      if  (tempF === 64) {
+          //       console.log('testing')
+          //         // tempOverlay.temp = "60"
+          //         tempOverlay.image_ = iconImg["61"];
+          //         }
+          //         else if ( tempF === 51 ){
+          //           // tempOverlay.temp = "61"
+          //           tempOverlay.image_ = iconImg["60"]
+          //           }
+          //           else {
+          //           console.log('its cold')
+          //         }
+          //         tempOverlays.push(tempOverlay)
                 
-            }iconSet() 
+          //   }iconSet() 
 
           // basePath = "/public/folder/myIcon."
           // start = 40
@@ -313,11 +317,11 @@ Promise.all(promisesArray).then(function(resolvedArray){
 
             var areaOverlay = new hoodOverlay(neighborhoods [index].dimension, neighborhoods [index].image, map)             
 
-              if ( tempF >= 50 && tempF < 52){
+              if ( tempF >= 49 && tempF < 52){
               areaOverlay.temp = "fifties"
               // ovarlay
               } 
-              if  (tempF >= 53 && tempF < 65) {
+              if  (tempF >= 53 && tempF < 66) {
                 areaOverlay.temp = "sixties"
               }
               else {

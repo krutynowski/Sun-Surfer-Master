@@ -33,16 +33,20 @@ filter: hue-rotate(20%);
             /*-webkit-filter: hue-rotate(42deg);*/
       /*Teal*/      
             /*-webkit-filter: hue-rotate(80deg);*/
-      /*Teal*/       
-            -webkit-filter: hue-rotate(123deg);
-            /*-webkit-filter: hue-rotate(171deg);*/
+      /*Blue*/       
+            /*-webkit-filter: hue-rotate(123deg);*/
+       /*Darker Blue*/  
+             /*-webkit-filter: hue-rotate(175deg);*/
+      /*Orange*/ 
             /*-webkit-filter: hue-rotate(333deg);*/
-            /*-webkit-filter: hue-rotate(deg);*/
+      /*Redish      */
+            /*-webkit-filter: hue-rotate(310deg);*/
       position: absolute;
       z-index: 10;
       height: 150px;
       width: 150px;
       background-color: #FFEE00;
+      /*background-color: #F0F900;*/
       margin-left: 40%;
       margin-top: 40%;
 
