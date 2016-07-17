@@ -22,7 +22,7 @@ var neighborhoods  = [
         image: "public/hoodOverlays/presidio.png",
         // image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
-        dimension: newBounds(37.777891, -122.4920386, 37.81500176, -122.43670545)
+        dimension: newBounds(37.777891, -122.4920386, 37.81530176, -122.43670545)
     },
     {   
         name: "Marina",
@@ -46,19 +46,43 @@ var neighborhoods  = [
         name: "Sunset",
         image: "public/hoodOverlays/sunSet.png",
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94122.json",
-        dimension: newBounds(37.72673718, -122.5142616, 37.77561441, -122.44400024)
+        dimension: newBounds(37.72673718, -122.5142616, 37.77661441, -122.44490024)
     },
     {   
         name: "Lake Merced",
         image: "public/hoodOverlays/lakeMerced.png",
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94132.json",
-        dimension: newBounds(37.67477129, -122.5100384, 37.73541279, -122.46705271)
+        dimension: newBounds(37.67477129, -122.5100384, 37.73741279, -122.46705271)
     },
     {   
         name: "Haight",
         image: "public/hoodOverlays/haight.png",
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
-        dimension: newBounds(37.75704423, -122.45459667, 37.787891, -122.41585593)
+        dimension: newBounds(37.75704423, -122.45479667, 37.787891, -122.41585593)
+    },
+    {   
+        name: "Twin Peaks",
+        image: "public/hoodOverlays/twinPeaks.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/92391.json",
+        dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
+    },
+    {   
+        name: "Castro",
+        image: "public/hoodOverlays/catro.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        dimension: newBounds(37.75375119, -122.4508667, 37.76759374, -122.42340088)
+    },
+    {   
+        name: "Noe Valley",
+        image: "public/hoodOverlays/noeValley.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        dimension: newBounds(37.73895579, -122.45390074, 37.76759374, -122.42340088)
+    },
+    {   
+        name: "Noe Valley",
+        image: "public/hoodOverlays/noeValley.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        dimension: newBounds(37.73895579, -122.45390074, 37.76759374, -122.42340088)
     },
     // {
     //     name: "HOOD",
@@ -114,6 +138,25 @@ var weatherStations = [
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
         dimension: newBounds(37.67477129, -122.5100384, 37.73541279, -122.46705271)
     },
+    {   
+        name: "Twin Peaks",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/92391.json",
+        dimension: newBounds(37.75704423, -122.45479667, 37.787891, -122.41585593)
+    },
+    {   
+        name: "Castro",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
+    },
+     {   
+        name: "Noe Valley",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
+    },
+
     ]
 // var iconImg = [
 
@@ -426,9 +469,7 @@ google.maps.event.addDomListener(window, 'load', initMap)
 setTimeout(function(){
   // console.log(overlays)
   for(areaOverlay of areaOverlays){
-    console.log('hello')
     if (areaOverlay.temp  === "forties" ){
-    // if ( tempF >= 50 && tempF < 58){
       areaOverlay.div_.className = "darkBlue"
       } 
        else if  ( areaOverlay.temp === "lowFifties") {
