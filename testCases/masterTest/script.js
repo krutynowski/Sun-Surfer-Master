@@ -14,25 +14,28 @@ var neighborhoods  = [
     {
         name: "Outer Richmond",
         image: "public/hoodOverlays/oRichmond.png",
-        // image: "https://wallazee.global.ssl.fastly.net/images/variant/20130718-774e5790ba7e48e298c9c49e9ffaedeaddf477eb4f6278828dd4d43-1024.png",
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
-        // dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)  
-
         dimension: newBounds(37.76623674, -122.51496642, 37.79252937, -122.4725271)  
     },
     {   
-        name: "Outer Mission",
-        image: "public/hoodOverlays/oRichmond.png.png",
+        name: "Presidio",
+        image: "public/hoodOverlays/presidio.png",
         // image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94112.json",
-        dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
+        dimension: newBounds(37.778891, -122.4920386, 37.81480176, -122.43670545)
     },
-    {   
-        name: "SOMA",
-        image: "http://mazurskiegrzybki.pl/wp-content/uploads/2015/08/78344_1_8_1.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94103.json",
-        dimension: newBounds(37.861708 , -122.44688, 37.98036, -122.2853560)
-    }
+    // {   
+    //     name: "Marina",
+    //     image: "public/hoodOverlays/marina.png",
+    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94123.json",
+    //     dimension: newBounds(37.861708 , -122.48528481, 37.98036, -122.2853560)
+    // },
+    // {
+    //     name: "HOOD",
+    //     image: "public/hoodOverlays/name.png",
+    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/zip.json",
+    //     dimension: newBounds(lat, long, lat, long)  
+    // },
     ]
 
 var weatherStations = [
