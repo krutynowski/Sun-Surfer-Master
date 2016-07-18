@@ -1,0 +1,53 @@
+ 
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+
+ /*COLLOR FILLTERS FOR NEIGHBORHODS*/  
+
+/*Redish 80+ */
+.red {
+    -webkit-filter: hue-rotate(310deg);
+}  
+ /* 75 - 79 */ 
+.orange {
+    -webkit-filter: hue-rotate(333deg); 
+}      
+/* 70 - 74*/ 
+ .lightOrange{
+    -webkit-filter: hue-rotate(348deg);
+ }          
+ /* 66 -69*/  
+ .yellow {
+    -webkit-filter: hue-rotate(0deg);
+ }
+ /*Lime 62-65*/
+.lime{
+    -webkit-filter: hue-rotate(18deg);}
+}
+/*Green  58-61*/
+.green {
+    -webkit-filter: hue-rotate(42deg);
+}
+/*Teal 54-57*/ 
+.teal{
+  -webkit-filter: hue-rotate(80deg)
+ }
+      /*Blue 50-53*/  
+.blue{
+  -webkit-filter: hue-rotate(123deg);
+}     
+      /*Darker Blue -49 */  
+.darkBlue{
+  -webkit-filter: hue-rotate(161deg);
+}      
+
+
+
+
+ 
