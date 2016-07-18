@@ -3,6 +3,7 @@ exports.up = function(knex, Promise) {
  return knex.schema.createTable('publicSpaces',function(table){
    table.increments();
    table.string('name');
+   table.
    table.text('address');
    table.string('hours');
    table.text('description');

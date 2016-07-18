@@ -4,8 +4,8 @@ function initMap() {
     center: {lat: 37.78036, lng: -122.44688}
   });
 
-var LOCATIONS = {
-  oLocation: {
+var placeS = {
+  oplace: {
     title: "MERH",
     address: "9 Loyola",
     city: "SF",
@@ -16,14 +16,14 @@ var LOCATIONS = {
 }
 var content = {
  sContent : 
-  '<h2>' + LOCATIONS.oLocation.title + '</h2>' +
+  '<h2>' + placeS.oplace.title + '</h2>' +
   '<br />' +
   '<p>' +
-    LOCATIONS.oLocation.address + 
+    placeS.oplace.address + 
     '<br />' +
-    LOCATIONS.oLocation.city +
+    placeS.oplace.city +
     '<br />' +
-    LOCATIONS.oLocation.zip +
+    placeS.oplace.zip +
   '</p>'
 
 
