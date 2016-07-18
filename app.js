@@ -37,7 +37,13 @@ app.use('/', routes.home);
 // app.use('/users/:user_id/addlocations', routes.addlocations);
 
 app.get('*', (req, res) => {
-  res.send('sorry kitts this is not a page')
+  res.send('this is not a page')
+});
+
+app.get('/public_spaces', (req, res) => {
+  knex('public_spaces').select().then(public_spaces => {
+    res.send(public_spaces);
+  });
 });
 
 // catch 404 and forward to error handler

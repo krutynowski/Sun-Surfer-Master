@@ -2,6 +2,8 @@ var tempF;
 var locNM; 
 var NMlat;
 var NMlon;
+var map;
+var locations;
 
 
 //CUSTOM OVERLAY START
@@ -114,6 +116,24 @@ var neighborhoods  = [
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
         dimension: newBounds(37.73013144, -122.43404388, 37.75320829, -122.40091324)
     },
+    {   
+        name: "Hunters Point",
+        image: "/hoodOverlays/huntersPoint.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94124.json",
+        dimension: newBounds(37.70799807, -122.4139595, 37.75210041, -122.35397721)
+    },
+    {   
+        name: "Excelsior",
+        image: "/hoodOverlays/exelsior.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94124.json",
+        dimension: newBounds(37.68517884, -122.4614488, 37.73825403, -122.3913002)
+    },
+    {   
+        name: "Ingleside",
+        image: "/hoodOverlays/ingleside.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94124.json",
+        dimension: newBounds(37.68241277, -122.47761183, 37.73316793, -122.43309975)
+    },
     // {
     //     name: "HOOD",
     //     image: "/hoodOverlays/name.png",
@@ -161,7 +181,7 @@ var weatherStations = [
     },
     {   
         name: "Sunset",
-        image: "public/hoodOverlays/pacificHeights.png",
+        image: " ",
         zipcode: " ",
         dimension: newBounds(37.77777043, -122.44674683, 37.7989493, -122.4131012)
     },
@@ -225,6 +245,24 @@ var weatherStations = [
         zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
         dimension: newBounds(37.74447156, -122.42996489, 37.77666736, -122.40085738)
     },
+    {   
+        name: "Hunters Point",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94124.json",
+        dimension: newBounds(37.71655347, -122.42760658, 37.74710041, -122.35327721)
+    },
+    {   
+        name: "Excelsior",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94124.json",
+        dimension: newBounds(37.68127692, -122.44814194, 37.72784918, -122.41292953)
+    },
+    {   
+        name: "Ingleside",
+        image: " ",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94124.json",
+        dimension: newBounds(37.68341277, -122.47361183, 37.73216793, -122.43309975)
+    },
 
     ]
 // var iconImg = [
@@ -265,7 +303,8 @@ var promisesArray = []
 promisesArray = neighborhoods.map(function(place){
   return getData(place)
 })
-    
+
+promisesArray.push()
 
 var areaOverlays;
 // Initialize the map and the custom overlay.
@@ -279,7 +318,7 @@ function newBounds(lat1, lng1, lat2, lng2){
 
 
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
     zoomControl: true,
     center: {lat: 37.78036, lng: -122.44688},
@@ -382,7 +421,7 @@ function initMap() {
 });
 
   
-setMarkers(map);
+
     
     /** @constructor */
 function hoodOverlay(bounds, image, map) {
@@ -528,8 +567,16 @@ Promise.all(promisesArray).then(function(resolvedArray){
           areaOverlays.push(areaOverlay)
 
       })
-      console.log(locNM)
+      return $.get("/public_spaces")
     //console.log(data.current_observation.observation_location.city)
+
+    //chaining to the promise my request to my database 
+  }).then(function(data){
+    locations = data.map(function(location){
+        return [location["name"], parseFloat(location["latitude"]), parseFloat(location["longitude"]), location["zIndex"], location["description"]]
+    })
+    console.log(locations)
+    setMarkers(map);
   })
 }
 
@@ -577,7 +624,7 @@ setTimeout(function(){
       console.log('off the charts')
     }   
   }  
-},4000)
+},3500)
 
 //CUSTOM OVERLAY END
 
@@ -586,15 +633,15 @@ setTimeout(function(){
 //TODO: implement logic that depending what type of location it recieves a different icon, 
 //do this by adding additional value in the array 
 
-var locations = [
 
-    ['SOMA', 37.77852, -122.40991539999999, 4, '<IMG BORDER="0" ALIGN="Left" SRC="http://a.deviantart.net/avatars/p/i/pikiyo.png?3"> FUCKING AWESOME TECH'],
-    ['NOPA', 37.77573,  -122.44248, 5, 'ITS COLD HERE.'],
-    ['Down Town',37.77493, -122.41942, 3, 'NO PUBLIC RESTROOMS'],
-    ['Mission', 37.75986, -122.41480, 2, 'FOOOOODDDD HERE'],
-    ['Potrero', 37.76626,  -122.40789, 1, 'NATIVES']
-    ];
+// var locations = [
 
+//     ['SOMA', 37.77852, -122.40991539999999, 4, '<IMG BORDER="0" ALIGN="Left" SRC="http://a.deviantart.net/avatars/p/i/pikiyo.png?3"> FUCKING AWESOME TECH'],
+//     ['NOPA', 37.77573,  -122.44248, 5, 'ITS COLD HERE.'],
+//     ['Down Town',37.77493, -122.41942, 3, 'NO PUBLIC RESTROOMS'],
+//     ['Mission', 37.75986, -122.41480, 2, 'FOOOOODDDD HERE'],
+//     ['Potrero', 37.76626,  -122.40789, 1, 'NATIVES']
+//     ];
 
 
 // Adds markers to the map
@@ -606,7 +653,7 @@ function setMarkers(map) {
 // Origins, anchor positions and coordinates of the marker increase in the X
 // direction to the right and in the Y direction down.
 var image = {
-  url: 'http://a.deviantart.net/avatars/p/i/pikiyo.png?3',
+  url: '/icons/pinkMarker.png',
   // This marker is 50 pixels wide by 50 pixels high.
   size: new google.maps.Size(50, 50),
   // The origin for this image is (0, 0).

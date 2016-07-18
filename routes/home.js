@@ -8,7 +8,11 @@ router.get('/', (req,res) =>{
 })
 
 
-
+router.get('/public_spaces', (req, res) => {
+  knex('public_spaces').select().then(public_spaces => {
+    res.format({json:function(){res.send(public_spaces)}})
+  });
+});
 
 
 module.exports = router;
