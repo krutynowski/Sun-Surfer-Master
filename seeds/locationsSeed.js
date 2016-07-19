@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
     knex('public_spaces').insert({   
       name: 'Galvanize Rooftop',
       latitude: 37.7875728,
-      latitude: -122.3965731,
+      longitude: -122.3965731,
       zIndex: 2,
       address:'543 Howard street',
       hours: '9am - 5pm',
