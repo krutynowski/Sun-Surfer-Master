@@ -73,24 +73,24 @@ var neighborhoods  = [
     //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
     //     dimension: newBounds(37.75704423, -122.45479667, 37.787891, -122.41585593)
     // },
-    {   
-        name: "Twin Peaks",
-        image: "/hoodOverlays/twinPeaks.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94131.json",
-        dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
-    },
-    {   
-        name: "Castro",
-        image: "/hoodOverlays/catro.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
-        dimension: newBounds(37.75375119, -122.4508667, 37.76759374, -122.42340088)
-    },
-    {   
-        name: "Noe Valley",
-        image: "/hoodOverlays/noeValley.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
-        dimension: newBounds(37.72795579, -122.45390074, 37.76759374, -122.41680088)
-    },
+    // {   
+    //     name: "Twin Peaks",
+    //     image: "/hoodOverlays/twinPeaks.png",
+    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94131.json",
+    //     dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
+    // },
+    // {   
+    //     name: "Castro",
+    //     image: "/hoodOverlays/catro.png",
+    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+    //     dimension: newBounds(37.75375119, -122.4508667, 37.76759374, -122.42340088)
+    // },
+    // {   
+    //     name: "Noe Valley",
+    //     image: "/hoodOverlays/noeValley.png",
+    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+    //     dimension: newBounds(37.72795579, -122.45390074, 37.76759374, -122.41680088)
+    // },
     // {   
     //     name: "Downtown",
     //     image: "/hoodOverlays/downtown.png",
@@ -103,30 +103,30 @@ var neighborhoods  = [
     //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94103.json",
     //     dimension: newBounds(37.76826868, -122.42324696, 37.79588148, -122.3850945)
     // },
-    // {   
-    //     name: "Potrero",
-    //     image: "/hoodOverlays/potrero.png",
-    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json",
-    //     dimension: newBounds(37.74457549, -122.40673393, 37.77729555, -122.37532202)
-    // },
-    // {   
-    //     name: "Mission",
-    //     image: "/hoodOverlays/mission.png",
-    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
-    //     dimension: newBounds(37.74447156, -122.43206489, 37.77666736, -122.39715738)
-    // },
-    // {   
-    //     name: "Bernal",
-    //     image: "/hoodOverlays/bernal.png",
-    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
-    //     dimension: newBounds(37.72513144, -122.43904388, 37.75320829, -122.40151324)
-    // },
-    // {   
-    //     name: "Hunters Point",
-    //     image: "/hoodOverlays/huntersPoint.png",
-    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94124.json",
-    //     dimension: newBounds(37.70799807, -122.4139595, 37.75210041, -122.35397721)
-    // },
+    {   
+        name: "Potrero",
+        image: "/hoodOverlays/potrero.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json",
+        dimension: newBounds(37.74457549, -122.40673393, 37.77729555, -122.37532202)
+    },
+    {   
+        name: "Mission",
+        image: "/hoodOverlays/mission.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
+        dimension: newBounds(37.74447156, -122.43206489, 37.77666736, -122.39715738)
+    },
+    {   
+        name: "Bernal",
+        image: "/hoodOverlays/bernal.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
+        dimension: newBounds(37.72513144, -122.43904388, 37.75320829, -122.40151324)
+    },
+    {   
+        name: "Hunters Point",
+        image: "/hoodOverlays/huntersPoint.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94124.json",
+        dimension: newBounds(37.70799807, -122.4139595, 37.75210041, -122.35397721)
+    },
     // {   
     //     name: "Excelsior",
     //     image: "/hoodOverlays/exelsior.png",
@@ -203,54 +203,54 @@ var neighborhoods  = [
         //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
         //     dimension: newBounds(37.77193596, -122.44674683, 37.77717982, -122.43988102)
         // },
-        {   
-            name: "Twin Peaks",
-            image: " ",
-            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94131.json",
-            dimension: newBounds(37.7432997, -122.4553299, 37.74854356, -122.44846409)
-        },
-        {   
-            name: "Castro",
-            image: " ",
-            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
-            dimension: newBounds(37.75451515, -122.43582977, 37.75975901, -122.42896396)
-        },
-         {   
-            name: "Noe Valley",
-            image: " ",
-            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
-            dimension: newBounds(37.74397841, -122.47399766, 37.74922227, -122.42340088)
-        },
+        // {   
+        //     name: "Twin Peaks",
+        //     image: " ",
+        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94131.json",
+        //     dimension: newBounds(37.7432997, -122.4553299, 37.74854356, -122.44846409)
+        // },
+        // {   
+        //     name: "Castro",
+        //     image: " ",
+        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        //     dimension: newBounds(37.75451515, -122.43582977, 37.75975901, -122.42896396)
+        // },
+        //  {   
+        //     name: "Noe Valley",
+        //     image: " ",
+        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        //     dimension: newBounds(37.74397841, -122.43164062, 37.74922227, -122.42477481)
+        // },
         // {   
         //     name: "Downtown",
         //     image: " ",
         //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94104.json",
-        //     dimension: newBounds(37.73895579, -122.45390074, 37.76759374, -122.42340088)
+        //     dimension: newBounds(37.79070783, -122.41019538, 37.79595169, -122.40332957000001)
         // },
         // {   
         //     name: "SOMA",
         //     image: " ",
         //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94103.json",
-        //     dimension: newBounds(37.77453168, -122.41888019, 37.794525, -122.40182741)
+        //     dimension: newBounds(37.78078111, -122.40493722, 37.78602497, -122.39807141)
         // },
-        // {   
-        //     name: "Potrero",
-        //     image: " ",
-        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json",
-        //     dimension: newBounds(37.76826868, -122.42324696, 37.79588148, -122.3850945)
-        // },
-        // {   
-        //     name: "Mission",
-        //     image: " ",
-        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
-        //     dimension: newBounds(37.74180651, -122.42940903, 37.77166458, -122.40391731)
-        // },
-        //  {   
-        //     name: "Bernal",
-        //     image: " ",
-        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
-        //     dimension: newBounds(37.74447156, -122.42996489, 37.77666736, -122.40085738)
-        // },
+        {   
+            name: "Potrero",
+            image: " ",
+            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json",
+            dimension: newBounds(37.76542253, -122.40142822, 37.77066639, -122.39456241)
+        },
+        {   
+            name: "Mission",
+            image: " ",
+            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
+            dimension: newBounds(37.76263845, -122.42324696, 37.76788231, -122.41638115)
+        },
+         {   
+            name: "Bernal",
+            image: " ",
+            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
+            dimension: newBounds(37.73447587, -122.42048264, 37.73971973, -122.41361683000001)
+        },
         // {   
         //     name: "Hunters Point",
         //     image: " ",
