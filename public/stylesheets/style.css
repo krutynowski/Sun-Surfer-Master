@@ -69,7 +69,7 @@
       z-index: 10;
       height: 7%;
       width: 100%;
-      background-color: orange;
+      background-color: grey;
       /*background-color: #F0F900;*/
       /*margin-left: 40%;
       margin-top: 40%;*/
@@ -150,5 +150,19 @@ header h1 a:hover {
 }
 
 
+.logo{
+  position: absolute;
+      z-index: 10;
+      margin-top: 10px;
+      margin-left: 10px;
+      height: 13%;
+      width: 13%;
+ }
 
- 
+
+
+
+
+
+
+
