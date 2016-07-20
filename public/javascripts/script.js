@@ -18,19 +18,19 @@ var tempOverlays = []
 
 
 var neighborhoods  = [
-    {
-        name: "Outer Richmond",
-        image: "/hoodOverlays/oRichmond.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
-        dimension: newBounds(37.76623674, -122.51496642, 37.79252937, -122.4725271)  
-    },
-    {   
-        name: "Presidio",
-        image: "/hoodOverlays/presidio.png",
-        // image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
-        dimension: newBounds(37.777891, -122.4920386, 37.81530176, -122.43670545)
-    },
+    // {
+    //     name: "Outer Richmond",
+    //     image: "/hoodOverlays/oRichmond.png",
+    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
+    //     dimension: newBounds(37.76623674, -122.51496642, 37.79252937, -122.4725271)  
+    // },
+    // {   
+    //     name: "Presidio",
+    //     image: "/hoodOverlays/presidio.png",
+    //     // image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
+    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
+    //     dimension: newBounds(37.777891, -122.4920386, 37.81530176, -122.43670545)
+    // },
     // {   
     //     name: "Marina",
     //     image: "/hoodOverlays/marina.png",
@@ -73,24 +73,24 @@ var neighborhoods  = [
     //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
     //     dimension: newBounds(37.75704423, -122.45479667, 37.787891, -122.41585593)
     // },
-    // {   
-    //     name: "Twin Peaks",
-    //     image: "/hoodOverlays/twinPeaks.png",
-    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/92391.json",
-    //     dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
-    // },
-    // {   
-    //     name: "Castro",
-    //     image: "/hoodOverlays/catro.png",
-    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
-    //     dimension: newBounds(37.75375119, -122.4508667, 37.76759374, -122.42340088)
-    // },
-    // {   
-    //     name: "Noe Valley",
-    //     image: "/hoodOverlays/noeValley.png",
-    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
-    //     dimension: newBounds(37.72795579, -122.45390074, 37.76759374, -122.41680088)
-    // },
+    {   
+        name: "Twin Peaks",
+        image: "/hoodOverlays/twinPeaks.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94131.json",
+        dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
+    },
+    {   
+        name: "Castro",
+        image: "/hoodOverlays/catro.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        dimension: newBounds(37.75375119, -122.4508667, 37.76759374, -122.42340088)
+    },
+    {   
+        name: "Noe Valley",
+        image: "/hoodOverlays/noeValley.png",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        dimension: newBounds(37.72795579, -122.45390074, 37.76759374, -122.41680088)
+    },
     // {   
     //     name: "Downtown",
     //     image: "/hoodOverlays/downtown.png",
@@ -149,78 +149,78 @@ var neighborhoods  = [
 
     var weatherStations = [
        
-        {
-            name: "Outer Richmond",
-            image: " ",
-            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
-            dimension: newBounds(37.77907284, -122.49831173, 37.7843167, -122.49144519)
-        },
-        {
-            name: "Presidio",
-            image: " ",
-            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
-            dimension: newBounds(37.79183082, -122.45950028, 37.79707468, -122.45263447)
-        },
+        // {
+        //     name: "Outer Richmond",
+        //     image: " ",
+        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
+        //     dimension: newBounds(37.77907284, -122.49831173, 37.7843167, -122.49144519)
+        // },
+        // {
+        //     name: "Presidio",
+        //     image: " ",
+        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
+        //     dimension: newBounds(37.79183082, -122.45950028, 37.79707468, -122.45263447)
+        // },
         // {
         //     name: "Marina",
         //     image: " ",
         //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94123.json",
-        //     dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
+        //     dimension: newBounds(37.79689882, -122.44073868, 37.80214268, -122.43387287)
         // },
         // {   
         //     name: "North Beach",
         //     image: " ",
         //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94133.json",
-        //     dimension: newBounds(37.78860081, -122.45402952, 37.8113986, -122.41543442)
-        // },
-        // {
-        //     name: "Pacific Heights",
-        //     image: " ",
-        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94118.json",
-        //     dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
+        //     dimension: newBounds(37.79811961, -122.41447449, 37.80336347, -122.40760868000001)
         // },
         // {
         //     name: "Inner Richmond",
         //     image: " ",
+        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94118.json",
+        //     dimension: newBounds(37.77835452, -122.46885784, 37.78359838, -122.46199203)
+        // },
+        // {
+        //     name: "Pacific Heights",
+        //     image: " ",
         //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94115.json",
-        //     dimension: newBounds(37.76871501, -122.48717258, 37.79333718, -122.44001002)
+        //     dimension: newBounds(37.78964147, -122.43052483, 37.79488533, -122.42365902)
         // },
         // {   
         //     name: "Sunset",
         //     image: " ",
-        //     zipcode: " ",
-        //     dimension: newBounds(37.77777043, -122.44674683, 37.7989493, -122.4131012)
+        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94122.json",
+        //     dimension: newBounds(37.75117239, -122.4833107, 37.75641625, -122.47644489000001)
         // },
         // {   
         //     name: "Lake Merced",
         //     image: " ",
         //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94132.json",
-        //     dimension: newBounds(37.72673718, -122.5142616, 37.77561441, -122.44400024)
+        //     dimension: newBounds(37.72071975, -122.4832593, 37.72596361, -122.47639349)
         // },
         // {   
         //     name: "Haight",
         //     image: " ",
         //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
-        //     dimension: newBounds(37.67477129, -122.5100384, 37.73541279, -122.46705271)
+        //     dimension: newBounds(37.77193596, -122.44674683, 37.77717982, -122.43988102)
         // },
-        // {   
-        //     name: "Twin Peaks",
-        //     image: " ",
-        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/92391.json",
-        //     dimension: newBounds(37.75704423, -122.45479667, 37.787891, -122.41585593)
-        // },
-        // {   
-        //     name: "Castro",
-        //     image: " ",
-        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
-        //     dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
-        // },
-        //  {   
-        //     name: "Noe Valley",
-        //     image: " ",
-        //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
-        //     dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
-        // },
+        {   
+            name: "Twin Peaks",
+            image: " ",
+            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94131.json",
+            dimension: newBounds(37.7432997, -122.4553299, 37.74854356, -122.44846409)
+        },
+        {   
+            name: "Castro",
+            image: " ",
+            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+            dimension: newBounds(37.75451515, -122.43582977, 37.75975901, -122.42896396)
+        },
+         {   
+            name: "Noe Valley",
+            image: " ",
+            zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+            dimension: newBounds(37.74397841, -122.47399766, 37.74922227, -122.42340088)
+        },
         // {   
         //     name: "Downtown",
         //     image: " ",
