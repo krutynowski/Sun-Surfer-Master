@@ -10,10 +10,6 @@ var areaOverlays = []
 var tempOverlays = []
 
 
-
-
-
-
 //CUSTOM OVERLAY START
 
 
@@ -101,8 +97,9 @@ var neighborhoods  = [
     {   
         name: "SOMA",
         image: "/hoodOverlays/soma.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94103.json",
+        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94105.json",
         dimension: newBounds(37.76826868, -122.42324696, 37.79588148, -122.3850945)
+
     },
     {   
         name: "Potrero",
@@ -325,7 +322,7 @@ function newBounds(lat1, lng1, lat2, lng2){
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+    zoom: 13,
     zoomControl: true,
     center: {lat: 37.78036, lng: -122.44688},
     disableDefaultUI: true, 
@@ -663,7 +660,7 @@ function setMarkers(map) {
 // Origins, anchor positions and coordinates of the marker increase in the X
 // direction to the right and in the Y direction down.
 var image = {
-  url: '/icons/placeIcon2.png',
+  url: '/icons/placeIcon5.png',
   // This marker is 50 pixels wide by 50 pixels high.
   size: new google.maps.Size(50, 50),
   // The origin for this image is (0, 0).
