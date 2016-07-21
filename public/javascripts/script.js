@@ -703,7 +703,7 @@ for (let i = 0; i < locations.length; i++) {
       map: map,
       icon: image,
       shape: shape,
-      title: location[0],
+      title: location[0][1],
       zIndex: location[3],
       animation: google.maps.Animation.DROP
      });
