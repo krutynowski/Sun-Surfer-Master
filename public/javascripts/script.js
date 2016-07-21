@@ -10,8 +10,6 @@ var areaOverlays = []
 var tempOverlays = []
 
 
-//CUSTOM OVERLAY START
-
 
 var neighborhoods  = [
 
@@ -266,31 +264,9 @@ var neighborhoods  = [
         ]
     
 
-// var iconImg = [
-
-// iconImg[parseInt(tempF)]
-
-//   "0.png", "file/path/to/1/png", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-//   "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-//   "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-//   "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", 
-//   "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", 
-//   "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", 
-//   "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", 
-//   "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", 
-//   "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", 
-//   "91", "92", "93", "94", "95", "96", "97", "98", "99"
-//   ]    
-
-// var iconImg = {
-//   '60': 'http://image.flaticon.com/icons/png/128/146/146200.png',
-
-//   '61': 'https://cdn3.iconfinder.com/data/icons/weather-91/64/1-06-128.png'
-// }
-
 function getData(place){
    return $.ajax({
-         // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"), 
+         
          url: encodeURI(place.zipcode), 
          
          data: {
@@ -495,49 +471,15 @@ Promise.all(promisesArray).then(function(resolvedArray){
          NMlat = data.current_observation.observation_location.latitude
          NMlon = data.current_observation.observation_location.longitude 
          tempF = data.current_observation.dewpoint_f
-         // tempOverlay.image_ = 'tempIcons/' + parseInt(tempF) + '.png'
-        // then console.log the temperature 
-         // store dewpoint in a variable
-         // pass into the draw function as a parameter with if else
-         console.log(tempF)
-
-          
-              
+         
+ 
           var tempOverlay = new hoodOverlay(weatherStations[index].dimension, weatherStations[index].image, map)
-          
+
+//setting temperature icons          
           function iconSet(){
             var intTemp = parseInt(tempF)
             return tempOverlay.image_ = 'tempIcons/' + intTemp + '.png'
             } iconSet()
-
-               // if  (tempF === 64) {
-               //  console.log('testing')
-               //    // tempOverlay.temp = "60"
-               //    tempOverlay.image_ = iconImg["61"];
-               //    }
-               //    else if ( tempF === 51 ){
-               //      // tempOverlay.temp = "61"
-               //      tempOverlay.image_ = iconImg["60"]
-               //      }
-               //      else {
-               //      console.log('its cold')
-               //    }
-               //    tempOverlays.push(tempOverlay)
-                
-
-          // basePath = "/public/folder/myIcon."
-          // start = 40
-          // end = 90
-          // function iconArrayGen(basePath, start, end){          
-          //     for (i=0; i<iconImg.length; i++){
-          //        if (i >= start && i < end) {
-          //           iconImg.appendChild(basePath + i + ".png")
-          //        } else {
-          //           iconImg.appendChild(basePath + i ".png")
-          //        }
-
-          //   }
-          // } tempOverlays.image = iconImg[tempF]
 
 
             var areaOverlay = new hoodOverlay(neighborhoods [index].dimension, neighborhoods [index].image, map)             
@@ -574,23 +516,23 @@ Promise.all(promisesArray).then(function(resolvedArray){
 
       })
       return $.get("/public_spaces")
-    //console.log(data.current_observation.observation_location.city)
+    
 
     //chaining to the promise my request to my database 
   }).then(function(data){
     locations = data.map(function(location){
-        return [location["name"], parseFloat(location["latitude"]), parseFloat(location["longitude"]), location["zIndex"], location["address", "description"]]
+        return [location["name"], parseFloat(location["latitude"]), parseFloat(location["longitude"]), location["zIndex"], location["description"]]
     })
     console.log(locations)
     setMarkers(map);
-    // FUNCTION TO PLACE IMG
+   
   })
 }
 
 google.maps.event.addDomListener(window, 'load', initMap)
 
 setTimeout(function(){
-  // console.log(overlays)
+  
   for(areaOverlay of areaOverlays){
     if (areaOverlay.temp  === "forties" ){
       areaOverlay.div_.className = "darkBlue"
@@ -631,24 +573,11 @@ setTimeout(function(){
       console.log('off the charts')
     }   
   }  
-},6000)
+},5000)
 
-//CUSTOM OVERLAY END
-
-
-//LOCATION MARKERS + INFO WINDOWS START 
-//TODO: implement logic that depending what type of location it recieves a different icon, 
-//do this by adding additional value in the array 
-
-
-// var locations = [
-
-//     ['SOMA', 37.77852, -122.40991539999999, 4, '<IMG BORDER="0" ALIGN="Left" SRC="http://a.deviantart.net/avatars/p/i/pikiyo.png?3"> FUCKING AWESOME TECH'],
-//     ['NOPA', 37.77573,  -122.44248, 5, 'ITS COLD HERE.'],
-//     ['Down Town',37.77493, -122.41942, 3, 'NO PUBLIC RESTROOMS'],
-//     ['Mission', 37.75986, -122.41480, 2, 'FOOOOODDDD HERE'],
-//     ['Potrero', 37.76626,  -122.40789, 1, 'NATIVES']
-//     ];
+ 
+//TODO: implement logic that depending what type of location it receives a different icon, 
+//add additional column in my table 
 
 
 // Adds markers to the map
@@ -666,14 +595,13 @@ var image = {
   // The origin for this image is (0, 0).
   origin: new google.maps.Point(0, 0),
   // The anchor for this image 
-  // anchor: new google.maps.Point(100, 100),
+ 
 };
 // Shapes define the clickable region of the icon. The type defines an HTML
 // <area> element 'poly' which traces out a polygon as a series of X,Y points.
 // The final coordinate closes the poly by connecting to the first coordinate.
 var shape = {
   coords: [1, 1, 1, 20, 18, 20, 18, 1],
-  // coords: [[0,0],[0,50],[50,50], [50,0]],
   type: 'poly'
 };
 
@@ -683,7 +611,7 @@ var infowindows = [];
 // block level scope via let 
 for (let i = 0; i < locations.length; i++) {
   location = locations[i];
-// console.log(location)
+
 
     infowindows.push(new google.maps.InfoWindow({
       content: location[4]
@@ -691,7 +619,7 @@ for (let i = 0; i < locations.length; i++) {
 
  
 //TODO:
-//The on click event is on the left ear, need to adjust the ancor so it works on the whole icon
+//The on click event parameter, need to be re adjust so the anchor is on the whole icon
 
     var marker = new google.maps.Marker({
 
@@ -699,15 +627,15 @@ for (let i = 0; i < locations.length; i++) {
         location: {lat: location[1], lng: location[2]},
         query: location[0]
       },
-      // position: {lat: location[1], lng: location[2]},
+      
       map: map,
       icon: image,
       shape: shape,
-      title: location[0,1],
+      title: location[0],
       zIndex: location[3],
       animation: google.maps.Animation.DROP
      });
-//console.log(marker)
+
 
 
       google.maps.event.addListener(marker, 'click', function (innerKey) {
@@ -716,6 +644,6 @@ for (let i = 0; i < locations.length; i++) {
     });
    }
 }
-//MARKERS + INFO WINDOWS END
+
 
 
