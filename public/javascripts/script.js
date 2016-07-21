@@ -579,7 +579,7 @@ Promise.all(promisesArray).then(function(resolvedArray){
     //chaining to the promise my request to my database 
   }).then(function(data){
     locations = data.map(function(location){
-        return [location["name"], parseFloat(location["latitude"]), parseFloat(location["longitude"]), location["zIndex"], location["description"]]
+        return [location["name"], parseFloat(location["latitude"]), parseFloat(location["longitude"]), location["zIndex"], location["address", "description"]]
     })
     console.log(locations)
     setMarkers(map);
@@ -703,7 +703,7 @@ for (let i = 0; i < locations.length; i++) {
       map: map,
       icon: image,
       shape: shape,
-      title: location[0][1],
+      title: location[0,1],
       zIndex: location[3],
       animation: google.maps.Animation.DROP
      });

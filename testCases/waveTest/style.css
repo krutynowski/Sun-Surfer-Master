@@ -1,7 +1,4 @@
-H1{
-    color: white;
-    margin-left: 29%; 
-}
+
 @keyframes wave {
     0% {
         border-radius: 25%;
@@ -93,12 +90,6 @@ body {
     left: 36px;
     animation: wave-before 1.1s infinite alternate ease-in-out;
 }
-
-.sunbox {
-    
-    
-}
-
 
 .sunlogo {
     margin-left: 78px;
