@@ -523,7 +523,7 @@ Promise.all(promisesArray).then(function(resolvedArray){
     locations = data.map(function(location){
         return [location["name"], parseFloat(location["latitude"]), parseFloat(location["longitude"]), location["zIndex"], location["description"]]
     })
-    console.log(locations)
+    
     setMarkers(map);
    
   })
@@ -538,39 +538,39 @@ setTimeout(function(){
       areaOverlay.div_.className = "darkBlue"
       } 
        else if  ( areaOverlay.temp === "lowFifties") {
-        console.log(areaOverlay.temp, "narhwal")
+        // console.log(areaOverlay.temp, "narhwal")
         areaOverlay.div_.className = "blue"
       }
       else if  ( areaOverlay.temp === "midFifties") {
-        console.log(areaOverlay.temp, "pea")
+        // console.log(areaOverlay.temp, "pea")
         areaOverlay.div_.className = "teal"
       }
       else if  ( areaOverlay.temp === "highFifties") {
-        console.log(areaOverlay.temp, "en")
+        // console.log(areaOverlay.temp, "en")
         areaOverlay.div_.className = "green"
       }
       else if  ( areaOverlay.temp === "lowSixties") {
-        console.log(areaOverlay.temp, "lim")
+        // console.log(areaOverlay.temp, "lim")
         areaOverlay.div_.className = "lime"
       }
       else if  ( areaOverlay.temp === "highSixties") {
-        console.log(areaOverlay.temp, "mellow")
+        // console.log(areaOverlay.temp, "mellow")
         areaOverlay.div_.className = "yellow"
       }
       else if  ( areaOverlay.temp === "lowSeventees") {
-        console.log(areaOverlay.temp, "lo")
+        // console.log(areaOverlay.temp, "lo")
         areaOverlay.div_.className = "lightOrange"
       }
       else if  ( areaOverlay.temp === "highSeventees") {
-        console.log(areaOverlay.temp, "or")
+        // console.log(areaOverlay.temp, "or")
         areaOverlay.div_.className = "orange"
       }
       else if  ( areaOverlay.temp === "eighties") {
-        console.log(areaOverlay.temp, "red")
+        // console.log(areaOverlay.temp, "red")
         areaOverlay.div_.className = "red"
       }
       else {
-      console.log('off the charts')
+      // console.log('off the charts')
     }   
   }  
 },5000)
