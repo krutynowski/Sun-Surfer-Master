@@ -20,8 +20,8 @@ function initMap() {
         'Aboriginal people of the area. It has many springs, waterholes, '+
         'rock caves and ancient paintings. Uluru is listed as a World '+
         'Heritage Site.</p>'+
-        '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-        'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+        '<p>Attribution: Uluru, <a href="httpss://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+        'httpss://en.wikipedia.org/w/index.php?title=Uluru</a> '+
         '</p>'+
         '</div>'+
         '</div>';
@@ -30,7 +30,7 @@ function initMap() {
         content: contentString
       });
 
-      var image = 'http://a.deviantart.net/avatars/p/i/pikiyo.png?3'
+      var image = 'https://a.deviantart.net/avatars/p/i/pikiyo.png?3'
   
       var marker = new google.maps.Marker({
         position: {lat: -33.890, lng: 151.274},

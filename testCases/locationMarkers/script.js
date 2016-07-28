@@ -15,7 +15,7 @@ function initMap() {
 
 
 var beaches = [
-  ['Bondi Beach', -33.890542, 151.274856, 4, '<IMG BORDER="0" ALIGN="Left" SRC="http://a.deviantart.net/avatars/p/i/pikiyo.png?3"> I am grumpy merh merh merh'],
+  ['Bondi Beach', -33.890542, 151.274856, 4, '<IMG BORDER="0" ALIGN="Left" SRC="https://a.deviantart.net/avatars/p/i/pikiyo.png?3"> I am grumpy merh merh merh'],
   ['Coogee Beach', -33.923036, 151.259052, 5, 'This is b.'],
   ['Cronulla Beach', -34.028249, 151.157507, 3, 'This is c.'],
   ['Manly Beach', -33.80010128657071, 151.28747820854187, 2, 'Im working yes yes yes yse.'],
@@ -32,7 +32,7 @@ function setMarkers(map) {
   // Origins, anchor positions and coordinates of the marker increase in the X
   // direction to the right and in the Y direction down.
   var image = {
-    url: 'http://a.deviantart.net/avatars/p/i/pikiyo.png?3',
+    url: 'https://a.deviantart.net/avatars/p/i/pikiyo.png?3',
     // This marker is 50 pixels wide by 50 pixels high.
     size: new google.maps.Size(50, 50),
     // The origin for this image is (0, 0).

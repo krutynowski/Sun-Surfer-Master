@@ -14,110 +14,110 @@ var neighborhoods  = [
     {
         name: "Outer Richmond",
         image: "public/hoodOverlays/oRichmond.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
         dimension: newBounds(37.76623674, -122.51496642, 37.79252937, -122.4725271)  
     },
     {   
         name: "Presidio",
         image: "public/hoodOverlays/presidio.png",
-        // image: "https://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
+        // image: "httpss://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
         dimension: newBounds(37.777891, -122.4920386, 37.81530176, -122.43670545)
     },
     {   
         name: "Marina",
         image: "public/hoodOverlays/marina.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94123.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94123.json",
         dimension: newBounds(37.78760081, -122.45402952, 37.8113986, -122.41143442)
     },
     {   
         name: "North Beach",
         image: "public/hoodOverlays/northBeach.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94133.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94133.json",
         dimension: newBounds(37.78183721, -122.43198395, 37.81039082, -122.39009174)
     },
     {   
         name: "Inner Richmond",
         image: "public/hoodOverlays/innerRichmond.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94118.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94118.json",
         dimension: newBounds(37.76871501, -122.48717258, 37.79433718, -122.44001002)
     },
     {   
         name: "Pacific Heights",
         image: "public/hoodOverlays/pacificHeights.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94115.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94115.json",
         dimension: newBounds(37.77777043, -122.44674683, 37.7989493, -122.4131012)
     },
     {   
         name: "Sunset",
         image: "public/hoodOverlays/sunSet.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94122.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94122.json",
         dimension: newBounds(37.72673718, -122.5142616, 37.77661441, -122.44490024)
     },
     {   
         name: "Lake Merced",
         image: "public/hoodOverlays/lakeMerced.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94132.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94132.json",
         dimension: newBounds(37.67477129, -122.5100384, 37.73741279, -122.46705271)
     },
     {   
         name: "Haight",
         image: "public/hoodOverlays/haight.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
         dimension: newBounds(37.75704423, -122.45479667, 37.787891, -122.41585593)
     },
     {   
         name: "Twin Peaks",
         image: "public/hoodOverlays/twinPeaks.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/92391.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/92391.json",
         dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
     },
     {   
         name: "Castro",
         image: "public/hoodOverlays/catro.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
         dimension: newBounds(37.75375119, -122.4508667, 37.76759374, -122.42340088)
     },
     {   
         name: "Noe Valley",
         image: "public/hoodOverlays/noeValley.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
         dimension: newBounds(37.73895579, -122.45390074, 37.76759374, -122.42340088)
     },
     {   
         name: "Downtown",
         image: "public/hoodOverlays/downtown.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94104.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94104.json",
         dimension: newBounds(37.77453168, -122.41888019, 37.794525, -122.40182741)
     },
     {   
         name: "SOMA",
         image: "public/hoodOverlays/soma.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94103.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94103.json",
         dimension: newBounds(37.76826868, -122.42324696, 37.79588148, -122.3850945)
     },
     {   
         name: "Potrero",
         image: "public/hoodOverlays/potrero.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json",
         dimension: newBounds(37.74457549, -122.40673393, 37.77729555, -122.37532202)
     },
     {   
         name: "Mission",
         image: "public/hoodOverlays/mission.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
         dimension: newBounds(37.74447156, -122.42996489, 37.77666736, -122.40085738)
     },
     {   
         name: "Bernal",
         image: "public/hoodOverlays/bernal.png",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
         dimension: newBounds(37.73013144, -122.43404388, 37.75320829, -122.40091324)
     },
     // {
     //     name: "HOOD",
     //     image: "public/hoodOverlays/name.png",
-    //     zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/zip.json",
+    //     zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/zip.json",
     //     dimension: newBounds(lat, long, lat, long)  
     // },
     ]
@@ -126,37 +126,37 @@ var weatherStations = [
     {
         name: "Outer Richmond",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94121.json",
         dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
     },
     {
         name: "Presidio",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
         dimension: newBounds(37.761708 , -122.44688, 37.88036, -122.2853560)
     },
     {
         name: "Marina",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94123.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94123.json",
         dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
     },
     {   
         name: "North Beach",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94133.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94133.json",
         dimension: newBounds(37.78860081, -122.45402952, 37.8113986, -122.41543442)
     },
     {
         name: "Pacific Heights",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94118.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94118.json",
         dimension: newBounds(37.661708 , -122.44688, 37.78036, -122.2853560)
     },
     {
         name: "Inner Richmond",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94115.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94115.json",
         dimension: newBounds(37.76871501, -122.48717258, 37.79333718, -122.44001002)
     },
     {   
@@ -168,61 +168,61 @@ var weatherStations = [
     {   
         name: "Lake Merced",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94132.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94132.json",
         dimension: newBounds(37.72673718, -122.5142616, 37.77561441, -122.44400024)
     },
     {   
         name: "Haight",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json",
         dimension: newBounds(37.67477129, -122.5100384, 37.73541279, -122.46705271)
     },
     {   
         name: "Twin Peaks",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/92391.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/92391.json",
         dimension: newBounds(37.75704423, -122.45479667, 37.787891, -122.41585593)
     },
     {   
         name: "Castro",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
         dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
     },
      {   
         name: "Noe Valley",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94114.json",
         dimension: newBounds(37.71641605, -122.47399766, 37.76759374, -122.42340088)
     },
     {   
         name: "Downtown",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94104.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94104.json",
         dimension: newBounds(37.73895579, -122.45390074, 37.76759374, -122.42340088)
     },
     {   
         name: "SOMA",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94103.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94103.json",
         dimension: newBounds(37.77453168, -122.41888019, 37.794525, -122.40182741)
     },
     {   
         name: "Potrero",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json",
         dimension: newBounds(37.76826868, -122.42324696, 37.79588148, -122.3850945)
     },
     {   
         name: "Mission",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
         dimension: newBounds(37.74180651, -122.42940903, 37.77166458, -122.40391731)
     },
      {   
         name: "Bernal",
         image: " ",
-        zipcode: "http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
+        zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94110.json",
         dimension: newBounds(37.74447156, -122.42996489, 37.77666736, -122.40085738)
     },
 
@@ -242,14 +242,14 @@ var weatherStations = [
 //   ]    
 
 var iconImg = {
-  '60': 'http://image.flaticon.com/icons/png/128/146/146200.png',
+  '60': 'https://image.flaticon.com/icons/png/128/146/146200.png',
 
-  '61': 'https://cdn3.iconfinder.com/data/icons/weather-91/64/1-06-128.png'
+  '61': 'httpss://cdn3.iconfinder.com/data/icons/weather-91/64/1-06-128.png'
 }
 
 function getData(place){
    return $.ajax({
-         // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"), 
+         // url: encodeURI("https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"), 
          url: encodeURI(place.zipcode), 
          
          data: {
@@ -588,7 +588,7 @@ setTimeout(function(){
 
 var locations = [
 
-    ['SOMA', 37.77852, -122.40991539999999, 4, '<IMG BORDER="0" ALIGN="Left" SRC="http://a.deviantart.net/avatars/p/i/pikiyo.png?3"> FUCKING AWESOME TECH'],
+    ['SOMA', 37.77852, -122.40991539999999, 4, '<IMG BORDER="0" ALIGN="Left" SRC="https://a.deviantart.net/avatars/p/i/pikiyo.png?3"> FUCKING AWESOME TECH'],
     ['NOPA', 37.77573,  -122.44248, 5, 'ITS COLD HERE.'],
     ['Down Town',37.77493, -122.41942, 3, 'NO PUBLIC RESTROOMS'],
     ['Mission', 37.75986, -122.41480, 2, 'FOOOOODDDD HERE'],
@@ -606,7 +606,7 @@ function setMarkers(map) {
 // Origins, anchor positions and coordinates of the marker increase in the X
 // direction to the right and in the Y direction down.
 var image = {
-  url: 'http://a.deviantart.net/avatars/p/i/pikiyo.png?3',
+  url: 'https://a.deviantart.net/avatars/p/i/pikiyo.png?3',
   // This marker is 50 pixels wide by 50 pixels high.
   size: new google.maps.Size(50, 50),
   // The origin for this image is (0, 0).
