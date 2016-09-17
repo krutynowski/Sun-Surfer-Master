@@ -519,6 +519,7 @@ Promise.all(promisesArray).then(function(resolvedArray){
     
 
     //chaining to the promise my request to my database 
+    //debug on heroku, my locations are not showing up 
   }).then(function(data){
     locations = data.map(function(location){
         return [location["name"], parseFloat(location["latitude"]), parseFloat(location["longitude"]), location["zIndex"], location["description"]]
@@ -570,7 +571,7 @@ setTimeout(function(){
         areaOverlay.div_.className = "red"
       }
       else {
-      // console.log('off the charts')
+      console.log('off the charts')
     }   
   }  
 },5000)
@@ -582,20 +583,22 @@ setTimeout(function(){
 
 // Adds markers to the map
 function setMarkers(map) {  
-
+console.log('testing')
 // Marker sizes are expressed as a Size of X,Y where the origin of the image
 // (0,0) is located in the top left of the image.
 
 // Origins, anchor positions and coordinates of the marker increase in the X
 // direction to the right and in the Y direction down.
 var image = {
-  url: '/icons/placeIcon5.png',
+  url: '/icons/place9.png',
+  // url: '/icons/place8.png',
+  // url: '/icons/place9.png',
   // This marker is 50 pixels wide by 50 pixels high.
   size: new google.maps.Size(50, 50),
   // The origin for this image is (0, 0).
   origin: new google.maps.Point(0, 0),
   // The anchor for this image 
- 
+
 };
 // Shapes define the clickable region of the icon. The type defines an HTML
 // <area> element 'poly' which traces out a polygon as a series of X,Y points.
@@ -605,7 +608,8 @@ var shape = {
   type: 'poly'
 };
 
-
+//TODO:
+//Info window more customized
 var location;
 var infowindows = [];
 // block level scope via let 
@@ -620,12 +624,13 @@ for (let i = 0; i < locations.length; i++) {
  
 //TODO:
 //The on click event parameter, need to be re adjust so the anchor is on the whole icon
+//Add additional elements to the query 
 
     var marker = new google.maps.Marker({
 
       place: {
         location: {lat: location[1], lng: location[2]},
-        query: location[0]
+        query: location[0],
       },
       
       map: map,
@@ -636,14 +641,9 @@ for (let i = 0; i < locations.length; i++) {
       animation: google.maps.Animation.DROP
      });
 
-
-
       google.maps.event.addListener(marker, 'click', function (innerKey) {
         infowindows[i].open(map, this);
  
     });
    }
 }
-
-
-
