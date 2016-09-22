@@ -58,23 +58,20 @@
     var locNM;
     var NMlat;
     var NMlon;
-​
-​
+
 // Ajax calls to weather underground api via geolookup and zipcode
 // http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94107.json
-​
 //Height Ashbury
     $.ajax({
           // url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/q/CA/San_Francisco.json"),
           url: encodeURI("http://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94117.json"),
-​
           data: {
             format: 'json'
-​
+
           },
-​
+
           dataType: "jsonp",
-​
+
           success: function(data){
             console.log(data)
             //console.log(data.current_observation.observation_location.city)

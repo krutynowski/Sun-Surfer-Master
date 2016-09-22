@@ -9,7 +9,7 @@ var locations;
 var areaOverlays = []
 var tempOverlays = []
 
-
+// TODO: one SF API request to WU and then parse for each location 
 
 var neighborhoods  = [
 
@@ -22,7 +22,6 @@ var neighborhoods  = [
     {   
         name: "Presidio",
         image: "/hoodOverlays/presidio.png",
-        // image: "httpss://d1v8u1ev1s9e4n.cloudfront.net/553f3a0d5ccacf195e0a7f02",
         zipcode: "https://api.wunderground.com/api/fafc315f4b0ce36b/conditions/geolookup/q/94129.json",
         dimension: newBounds(37.777891, -122.4920386, 37.81530176, -122.43670545)
     },
@@ -467,10 +466,8 @@ hoodOverlay.prototype.onRemove = function() {
 
 Promise.all(promisesArray).then(function(resolvedArray){
     resolvedArray.forEach(function(data, index, arr){
-         locNM = data.current_observation.observation_location.city
-         NMlat = data.current_observation.observation_location.latitude
-         NMlon = data.current_observation.observation_location.longitude 
-         tempF = data.current_observation.dewpoint_f
+         locNM = data.current_observation.observation_location.city 
+         tempF = data.current_observation.temp_f
          
  
           var tempOverlay = new hoodOverlay(weatherStations[index].dimension, weatherStations[index].image, map)
@@ -590,7 +587,7 @@ console.log('testing')
 // Origins, anchor positions and coordinates of the marker increase in the X
 // direction to the right and in the Y direction down.
 var image = {
-  url: '/icons/place9.png',
+  url: '/icons/place10.png',
   // url: '/icons/place8.png',
   // url: '/icons/place9.png',
   // This marker is 50 pixels wide by 50 pixels high.
@@ -600,6 +597,9 @@ var image = {
   // The anchor for this image 
 
 };
+
+//TODO: Adjust coords so that the clickable region of the marker is expanded to its full size.
+
 // Shapes define the clickable region of the icon. The type defines an HTML
 // <area> element 'poly' which traces out a polygon as a series of X,Y points.
 // The final coordinate closes the poly by connecting to the first coordinate.
@@ -623,7 +623,6 @@ for (let i = 0; i < locations.length; i++) {
 
  
 //TODO:
-//The on click event parameter, need to be re adjust so the anchor is on the whole icon
 //Add additional elements to the query 
 
     var marker = new google.maps.Marker({
